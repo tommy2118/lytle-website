@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform your outdoor space with Orange County's premier landscaping service. Expert landscape design, installation, and maintenance by Steve Lytle, CCN.">
+    <meta name="keywords" content="landscape design, Orange County landscaping, garden maintenance, irrigation systems">
+    <title>Lytle Landscape - Transform Your Outdoor Space | Orange County's Premier Landscaping Service</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#2C5530',
+                        'lime': '#7AB800',
+                        'spring': '#98FB98',
+                        'sunny': '#F0E68C',
+                        'coral': '#FF7F50',
+                        'sunset': '#FFA07A',
+                        'stone': '#333333',
+                        'sand': '#D2B48C'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+<body class="bg-white text-stone">
+    <header class="fixed w-full z-50 bg-forest text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold hover:text-spring">Lytle Landscape</a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-spring transition-colors">About</a>
+                    <a href="#services" class="hover:text-spring transition-colors">Services</a>
+                    <a href="#projects" class="hover:text-spring transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-spring transition-colors">Contact</a>
+                    <a href="tel:9495257929" class="bg-lime text-stone px-4 py-2 rounded-lg hover:bg-spring transition-colors">
+                        (949) 525-7929
+                    </a>
+                </nav>
+
+                <button id="menuBtn" class="md:hidden text-2xl">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <nav id="mobileMenu" class="hidden md:hidden py-4 space-y-4">
+                <a href="#about" class="block hover:text-spring transition-colors">About</a>
+                <a href="#services" class="block hover:text-spring transition-colors">Services</a>
+                <a href="#projects" class="block hover:text-spring transition-colors">Projects</a>
+                <a href="#contact" class="block hover:text-spring transition-colors">Contact</a>
+                <a href="tel:9495257929" class="block hover:text-spring transition-colors">(949) 525-7929</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/hero-home.jpg')">
+            <div class="absolute inset-0 bg-gradient-to-b from-forest/60 to-spring/40"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Transform Your <span class="text-sunny">Outdoor Space</span>
+                </h1>
+                <p class="text-xl md:text-3xl text-white mb-8">Orange County's Premier Landscaping Service</p>
+                <a href="#contact" class="inline-block bg-coral text-stone px-8 py-4 rounded-full text-lg font-semibold hover:bg-sunset transition-colors">
+                    Get Started
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <img src="images/steve-lytle.jpg" alt="Steve Lytle, CCN" class="rounded-xl shadow-xl w-full">
+                    <p class="mt-4 text-forest font-bold">California Certified Nurseryman</p>
+                    <p class="text-gray-600">Lic #C27-743494</p>
+                </div>
+
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Meet <span class="text-forest">Steve Lytle</span></h2>
+                    <p class="text-lg text-gray-700 mb-8">
+                        With over 42 years of experience in landscape design and construction,
+                        Steve brings unparalleled expertise to every project. As a California
+                        Certified Nurseryman, he ensures that every landscape not only looks
+                        beautiful but thrives in our unique climate.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-forest mb-4">Our Approach</h3>
+                            <p class="text-gray-600">
+                                We create sustainable, beautiful landscapes that enhance both
+                                your property value and quality of life.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-forest mb-4">Service Areas</h3>
+                            <ul class="text-gray-600 list-disc ml-4">
+                                <li>Aliso Viejo</li>
+                                <li>Costa Mesa</li>
+                                <li>Dana Point</li>
+                                <li>Irvine</li>
+                                <li>Laguna Beach</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-forest text-white rounded-lg hover:bg-lime transition-colors">
+                            <i class="fas fa-arrow-right mr-2"></i>
+                            Start Your Project
+                        </a>
+                        <a href="tel:9495257929" class="inline-flex items-center justify-center px-6 py-3 border-2 border-forest text-forest rounded-lg hover:bg-forest hover:text-white transition-colors">
+                            <i class="fas fa-phone mr-2"></i>
+                            (949) 525-7929
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-gradient-to-br from-white to-gray-50">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-8">Our Services</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-16">
+                    From custom landscape design to lighting, irrigation, and softscapes,
+                    we provide a full range of services to bring your dream landscape to life.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Landscape Design</h3>
+                        <p class="text-gray-600">
+                            Custom landscape design that perfectly blends your vision with our expertise.
+                        </p>
+                    </div>
+                                        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-seedling"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Installation</h3>
+                        <p class="text-gray-600">
+                            Expert installation of plants, hardscapes, and landscape features.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-faucet"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Irrigation Systems</h3>
+                        <p class="text-gray-600">
+                            Smart irrigation solutions for water conservation and plant health.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-lightbulb"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Landscape Lighting</h3>
+                        <p class="text-gray-600">
+                            Beautiful lighting design to enhance your outdoor space day and night.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-leaf"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Maintenance</h3>
+                        <p class="text-gray-600">
+                            Regular maintenance to keep your landscape looking its best year-round.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <span class="text-4xl text-lime">
+                            <i class="fas fa-mountain"></i>
+                        </span>
+                        <h3 class="text-xl font-bold my-4">Hardscaping</h3>
+                        <p class="text-gray-600">
+                            Custom patios, walkways, and retaining walls built to last.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">Featured Projects</h2>
+
+                <!-- Featured Project -->
+                <div class="mb-24">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="images/Greg3.jpg" alt="Custom stone fireplace with comfortable seating area" class="rounded-lg shadow-xl w-full h-[400px] object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-4">Luxury Outdoor Living Space</h3>
+                            <p class="text-lg text-gray-700 mb-6">
+                                A stunning backyard transformation featuring a custom-built stone fireplace,
+                                comfortable seating area, and ambient lighting. This project creates the perfect
+                                outdoor room for year-round entertainment.
+                            </p>
+                            <ul class="space-y-3 text-gray-600 mb-8">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Custom stone fireplace with lighting
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Timber pergola with LED strips
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Premium outdoor furniture
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Low-maintenance plantings
+                                </li>
+                            </ul>
+                            <a href="#contact" class="inline-flex items-center text-forest hover:text-lime transition-colors">
+                                Start Your Project
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/Massero backyard1.JPG" alt="Illuminated garden pathway with custom seating area" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Contemporary Pathway Design</h3>
+                            <p class="text-gray-600 mb-4">
+                                Modern concrete stepping stones with LED lighting and drought-resistant plants
+                                create an elegant garden path.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Hardscaping</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Lighting</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/poolgarden12.jpg" alt="Lush garden with water fountain" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Vibrant Garden Oasis</h3>
+                            <p class="text-gray-600 mb-4">
+                                A beautiful blend of colors featuring a water fountain, seasonal flowers,
+                                and ornamental grasses.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Water Features</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Planting</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/Lytle Back yard 1.JPG" alt="Evening patio with fire pit and lighting" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Evening Entertainment</h3>
+                            <p class="text-gray-600 mb-4">
+                                A carefully designed outdoor space with fire pit, pathway lighting,
+                                and comfortable seating areas.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Fire Features</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Lighting</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">Entertainment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-center mb-8">Our Work</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <img src="images/project1.jpg" alt="Modern slate steps pathway" class="w-full h-64 object-cover rounded-lg">
+                        <img src="images/project2.jpg" alt="Stone entry steps with plantings" class="w-full h-64 object-cover rounded-lg">
+                        <img src="images/project3.jpg" alt="Garden with fountain and colorful flowers" class="w-full h-64 object-cover rounded-lg">
+                        <img src="images/2013-04-09 14.08.33.jpg" alt="Illuminated garden pathway" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">Landscape Insights</h2>
+
+                <!-- Featured Article -->
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div>
+                        <img src="images/blog-featured.webp" alt="Water Conservation in Landscaping" class="rounded-lg shadow-xl w-full h-[400px] object-cover">
+                    </div>
+                    <div>
+                        <span class="text-lime font-semibold">Featured Article</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Water Conservation in Modern Landscaping</h3>
+                        <p class="text-gray-600 mb-6">
+                            Discover how modern irrigation systems and drought-resistant plants can reduce water usage
+                            while maintaining a beautiful landscape. Learn about the latest technologies and techniques
+                            in sustainable landscaping.
+                        </p>
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                            <span><i class="far fa-calendar mr-1"></i> Jan 10, 2024</span>
+                            <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-forest hover:text-lime transition-colors">
+                            Read More
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Posts -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/blog-1.webp" alt="Native Plants Guide" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Guide to Native Plants in Orange County</h3>
+                            <p class="text-gray-600 mb-4">
+                                Explore the best native plants for your Orange County garden and their benefits.
+                            </p>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-500">Dec 28, 2023</span>
+                                <a href="#" class="text-forest hover:text-lime transition-colors">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/blog-2.webp" alt="Hardscaping Tips" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">5 Hardscaping Trends for 2024</h3>
+                            <p class="text-gray-600 mb-4">
+                                The latest trends in patios, walkways, and outdoor living spaces.
+                            </p>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-500">Dec 15, 2023</span>
+                                <a href="#" class="text-forest hover:text-lime transition-colors">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="images/blog-3.webp" alt="Garden Maintenance" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Year-Round Garden Maintenance Tips</h3>
+                            <p class="text-gray-600 mb-4">
+                                Essential maintenance tasks to keep your garden thriving through every season.
+                            </p>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-500">Dec 5, 2023</span>
+                                <a href="#" class="text-forest hover:text-lime transition-colors">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold mb-4">Get Started</h2>
+                        <p class="text-gray-600">Transform your outdoor space with our expertise</p>
+                    </div>
+
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <input type="hidden" name="access_key" value="YOUR-ACCESS-KEY-HERE">
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Your Name *</label>
+                                <input type="text" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">Phone Number *</label>
+                                <input type="tel" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Project Address *</label>
+                            <input type="text" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">City *</label>
+                                <input type="text" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700">ZIP *</label>
+                                <input type="text" required pattern="[0-9]*" maxlength="5" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Service Type *</label>
+                            <select required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                                <option value="">Select a service</option>
+                                <option>Landscape Design</option>
+                                <option>Landscape Installation</option>
+                                <option>Irrigation & Drainage</option>
+                                <option>Landscape Lighting</option>
+                                <option>Maintenance</option>
+                                <option>Other Services</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Project Details *</label>
+                            <textarea required rows="4" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-forest text-white py-3 rounded-lg hover:bg-lime transition-colors">
+                            Get Your Free Quote
+                        </button>
+
+                        <div class="mt-6 bg-gray-50 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-forest mb-2">What to Expect:</h3>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Same-day response during business hours
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Personal consultation with Steve Lytle
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    Detailed project estimate with visual plans
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-lime"></i>
+                                    One project at a time for dedicated attention
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-forest text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-2">Lytle Landscape</h3>
+                <p>Creating beautiful, sustainable landscapes in Orange County since 1982</p>
+                <p class="mt-2">California Certified Nurseryman | Lic #C27-743494</p>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-semibold mb-4">Stay Updated</h4>
+                <form action="#" method="POST" class="flex max-w-md mx-auto">
+                    <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900">
+                    <button type="submit" class="bg-lime text-stone px-6 py-2 rounded-r-lg hover:bg-spring transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+            <div class="text-sm">
+                <p>&copy; 2024 Lytle Landscape. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>
