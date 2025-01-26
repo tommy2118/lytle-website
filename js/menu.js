@@ -3,4 +3,10 @@ document.getElementById('menuBtn').addEventListener('click', () => {
 });
 
 // Close mobile menu on link click
-document.quer
+document.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+    });
+}
+);
+
