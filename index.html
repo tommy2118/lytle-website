@@ -371,117 +371,108 @@
         </section>
 
 <!-- Testimonials Section -->
-<section class="py-24 bg-gradient-to-br from-white to-spring/10">
+<section class="py-24 bg-gradient-to-br from-gray-50 to-spring/10">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-forest mb-6">What Our Clients Say</h2>
-            <p class="text-lg text-gray-700">See why homeowners across Orange County trust Lytle Landscape</p>
+        <h2 class="text-4xl font-bold text-center mb-4">What Our Clients Say</h2>
+        <p class="text-gray-600 text-center mb-16 max-w-2xl mx-auto">Read what our satisfied clients have to say about their experience with Lytle Landscape</p>
+
+        <!-- Featured Testimonial -->
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-8 mb-16 transform hover:-translate-y-1 transition-all duration-300">
+            <div class="relative">
+                <span class="absolute -top-4 -left-2 text-6xl text-lime opacity-20">"</span>
+                <blockquote class="text-lg text-gray-700 mb-6 relative z-10">
+                    <p class="italic">
+                        Steve never leaves a job unless absolutely everything is perfect. He coaches me on design, and his ideas have worked in our 'challenged' yard. I trust him with my house when I am not home. Doors open, he's in charge. Total security.
+                    </p>
+                </blockquote>
+                <div class="flex items-center justify-end gap-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-forest text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            TA
+                        </div>
+                    </div>
+                    <cite class="not-italic">
+                        <span class="font-semibold text-forest block">Tom A.</span>
+                        <span class="text-sm text-gray-600">Lake Forest, Orange County, CA</span>
+                    </cite>
+                </div>
+            </div>
         </div>
 
-        <!-- Featured Testimonials Carousel -->
-        <div class="relative max-w-4xl mx-auto mb-24">
-            <div id="testimonials-container" class="overflow-hidden">
-                <div id="testimonials-slider" class="flex transition-transform duration-500">
-                    <!-- Testimonial 1 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <blockquote class="bg-white rounded-xl shadow-lg p-8">
-                            <p class="text-gray-700 mb-6 text-lg">
-                                "Steve transformed our backyard into a dream oasis! His attention to detail and plant knowledge made all the difference. We now have a space we love."
-                            </p>
-                            <footer class="text-forest">
-                                <cite class="not-italic">
-                                    <span class="font-semibold">Tony & Lisa</span>
-                                    <span class="block text-sm">Newport Beach, CA</span>
-                                </cite>
-                            </footer>
-                        </blockquote>
+        <!-- Testimonial Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial Card 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-lime text-white rounded-full flex items-center justify-center text-lg font-bold">
+                        T
                     </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <blockquote class="bg-white rounded-xl shadow-lg p-8">
-                            <p class="text-gray-700 mb-6 text-lg">
-                                "Our outdoor lighting is stunning, and the landscape design exceeded our expectations. Highly recommend Steve and his team!"
-                            </p>
-                            <footer class="text-forest">
-                                <cite class="not-italic">
-                                    <span class="font-semibold">Sarah J.</span>
-                                    <span class="block text-sm">Laguna Beach, CA</span>
-                                </cite>
-                            </footer>
-                        </blockquote>
+                    <div>
+                        <span class="font-semibold text-forest block">Tony</span>
+                        <span class="text-sm text-gray-600">Orange County, CA</span>
                     </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="w-full flex-shrink-0 px-4">
-                        <blockquote class="bg-white rounded-xl shadow-lg p-8">
-                            <p class="text-gray-700 mb-6 text-lg">
-                                "Steve and his crew were amazing! They created a low-maintenance garden that perfectly fits our lifestyle and climate."
-                            </p>
-                            <footer class="text-forest">
-                                <cite class="not-italic">
-                                    <span class="font-semibold">Michael & Anna</span>
-                                    <span class="block text-sm">Mission Viejo, CA</span>
-                                </cite>
-                            </footer>
-                        </blockquote>
-                    </div>
+                </div>
+                <blockquote>
+                    <span class="text-4xl text-lime opacity-20">"</span>
+                    <p class="text-gray-700 mb-4 italic">I can't thank you enough for the professional landscape job you did. Everything was delivered on time, within budget and exceeded my and my wife's expectations.</p>
+                </blockquote>
+                <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">On Time</span>
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">Within Budget</span>
                 </div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <button onclick="prevTestimonial()" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-                <i class="fas fa-chevron-left text-forest"></i>
-            </button>
-            <button onclick="nextTestimonial()" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-                <i class="fas fa-chevron-right text-forest"></i>
-            </button>
+            <!-- Testimonial Card 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-lime text-white rounded-full flex items-center justify-center text-lg font-bold">
+                        D
+                    </div>
+                    <div>
+                        <span class="font-semibold text-forest block">Deborah</span>
+                        <span class="text-sm text-gray-600">Lake Forest, Orange County, CA</span>
+                    </div>
+                </div>
+                <blockquote>
+                    <span class="text-4xl text-lime opacity-20">"</span>
+                    <p class="text-gray-700 mb-4 italic">Thanks so much for all the amazing work you did on my patio. The flagstone looks great, and I can't wait for all the flowers to start blooming. I now have my very own English Garden!</p>
+                </blockquote>
+                <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">Flagstone</span>
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">English Garden</span>
+                </div>
+            </div>
 
-            <!-- Dots Navigation -->
-            <div class="flex justify-center mt-8 space-x-2">
-                <button onclick="goToTestimonial(0)" class="w-3 h-3 rounded-full bg-forest"></button>
-                <button onclick="goToTestimonial(1)" class="w-3 h-3 rounded-full bg-gray-300"></button>
-                <button onclick="goToTestimonial(2)" class="w-3 h-3 rounded-full bg-gray-300"></button>
+            <!-- Testimonial Card 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 bg-lime text-white rounded-full flex items-center justify-center text-lg font-bold">
+                        JE
+                    </div>
+                    <div>
+                        <span class="font-semibold text-forest block">Jim E.</span>
+                        <span class="text-sm text-gray-600">Mission Viejo, Orange County, CA</span>
+                    </div>
+                </div>
+                <blockquote>
+                    <span class="text-4xl text-lime opacity-20">"</span>
+                    <p class="text-gray-700 mb-4 italic">Steve and his crew installed a new slump stone wall with a brick cap. My neighbors have commented on how elegant it looks. Steve and his crew were very professional.</p>
+                </blockquote>
+                <div class="mt-4 flex gap-2">
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">Stone Wall</span>
+                    <span class="px-3 py-1 bg-spring/20 text-forest rounded-full text-sm">Professional</span>
+                </div>
             </div>
         </div>
 
-        <!-- Grid Testimonials -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <blockquote>
-                    <p class="text-gray-700 mb-4">"The team was professional, on time, and on budget. Our patio is now our favorite part of the house!"</p>
-                    <footer class="text-forest">
-                        <cite class="not-italic">
-                            <span class="font-semibold">Nick & Ralda</span>
-                            <span class="block text-sm">Irvine, CA</span>
-                        </cite>
-                    </footer>
-                </blockquote>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <blockquote>
-                    <p class="text-gray-700 mb-4">"Lytle Landscape brought our vision to life. The plants, lighting, and design flow together beautifully."</p>
-                    <footer class="text-forest">
-                        <cite class="not-italic">
-                            <span class="font-semibold">Deborah</span>
-                            <span class="block text-sm">Lake Forest, CA</span>
-                        </cite>
-                    </footer>
-                </blockquote>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <blockquote>
-                    <p class="text-gray-700 mb-4">"Steve's designs are timeless and low-maintenance. We love our new drought-tolerant garden!"</p>
-                    <footer class="text-forest">
-                        <cite class="not-italic">
-                            <span class="font-semibold">Bill Reed</span>
-                            <span class="block text-sm">Villa Park, CA</span>
-                        </cite>
-                    </footer>
-                </blockquote>
-            </div>
+        <!-- View More Button -->
+        <div class="text-center mt-12">
+            <button onclick="showMoreTestimonials()" class="group px-8 py-4 bg-lime text-white rounded-lg hover:bg-forest transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span class="flex items-center gap-2">
+                    <span>View More Testimonials</span>
+                    <i class="fas fa-chevron-right group-hover:translate-x-1 transition-transform"></i>
+                </span>
+            </button>
         </div>
     </div>
 </section>
@@ -737,6 +728,94 @@
             currentIndex = index;
             updateTestimonialSlider();
         }
+    </script>
+
+    <!-- Testimonials Modal -->
+    <div id="testimonials-modal" class="fixed inset-0 bg-black/50 z-50 hidden">
+        <div class="fixed inset-0 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4">
+                <div class="bg-white rounded-xl max-w-4xl w-full p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+                    <!-- Modal Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-forest">More Client Testimonials</h3>
+                        <button onclick="closeTestimonialsModal()" class="text-gray-500 hover:text-forest">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Additional Testimonials -->
+                    <div class="space-y-8">
+                        <blockquote class="border-l-4 border-lime pl-4">
+                            <p class="text-gray-700 mb-4">"My experience with Lytle Landscaping in Orange County was a pleasure. Steve is creative and hardworking and went out of his way to make sure that I was satisfied with the work he did. I can tell he takes pride in ownership in every endeavor, and I would feel very comfortable recommending him to anyone who is in the market for a great Orange County landscaping experience."</p>
+                            <footer class="text-forest">
+                                <cite class="not-italic">
+                                    <span class="font-semibold">Elizabeth Julian</span>
+                                    <span class="block text-sm">San Clemente, Orange County, CA</span>
+                                </cite>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="border-l-4 border-lime pl-4">
+                            <p class="text-gray-700 mb-4">"Thank you and your wonderful crew for the fantastic job you performed on transforming my unused backyard into a garden paradise. My friends and family are amazed at the beautiful area you created. The flagstone pathways are spectacular, and the lighting really sets the mood. This is now our most used room for entertaining."</p>
+                            <footer class="text-forest">
+                                <cite class="not-italic">
+                                    <span class="font-semibold">Alice</span>
+                                    <span class="block text-sm">Mission Viejo, CA</span>
+                                </cite>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="border-l-4 border-lime pl-4">
+                            <p class="text-gray-700 mb-4">"I have hired Steve many times over the last 7 years, to work on my large hillside(the one with all the Keystone block trails, and steps pictured in his jobs photo section.) and will continue to do so. He has made my unusable and dangerous hillside into a garden retreat with winding trails, steps, and landings."</p>
+                            <footer class="text-forest">
+                                <cite class="not-italic">
+                                    <span class="font-semibold">Susan</span>
+                                    <span class="block text-sm">Mission Viejo, Orange County, CA</span>
+                                </cite>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="border-l-4 border-lime pl-4">
+                            <p class="text-gray-700 mb-4">"My experience with Lytle Landscape was excellent. The project was completed within the time it was originally estimated, and I feel that my needs were addressed and given priority attention, even though my job was of a relatively small size."</p>
+                            <footer class="text-forest">
+                                <cite class="not-italic">
+                                    <span class="font-semibold">Brent S.</span>
+                                    <span class="block text-sm">Aliso Viejo, Orange County, CA</span>
+                                </cite>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMoreTestimonials() {
+            const modal = document.getElementById('testimonials-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTestimonialsModal() {
+            const modal = document.getElementById('testimonials-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('testimonials-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTestimonialsModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeTestimonialsModal();
+            }
+        });
     </script>
 </body>
 </html>
