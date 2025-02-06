@@ -156,46 +156,7 @@
         <image:loc>https://lytle-landscape.com/images/expert-consultation.jpeg</image:loc>
       </image:image>
   </url>
-  <url>
-    <loc>https://lytle-landscape.com/index.html</loc>
-    <lastmod>2025-01-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/steve-lytle-logo.png</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/Greg3.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/Massero%20backyard1.JPG</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/poolgarden12.jpg</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/Lytle%20Back%20yard%201.JPG</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/blog-featured.webp</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/landscape-design-basics.webp</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/tree-planting-guide.webp</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/blog-1.webp</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/blog-2.webp</image:loc>
-      </image:image>
-      <image:image>
-        <image:loc>https://lytle-landscape.com/images/blog-3.webp</image:loc>
-      </image:image>
-  </url>
-  <url>
+  <URL>
     <loc>https://lytle-landscape.com/blogs/basic-landscape-design.html</loc>
     <lastmod>2025-01-31</lastmod>
     <changefreq>daily</changefreq>
