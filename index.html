@@ -55,6 +55,8 @@
 
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Step 2: Add the Web3Forms script -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3PQC5JE31"></script>
     <script>
@@ -64,6 +66,7 @@
 
         gtag('config', 'G-X3PQC5JE31');
     </script>
+    
     </head>
     <body class="bg-white text-stone">
         <header class="fixed w-full z-50 bg-forest text-white shadow-lg">
@@ -709,11 +712,28 @@
                                 </select>
                             </div>
 
+                            <!-- How did you find us -->
+                            <div>
+                                <label for="referral_source" class="block text-sm font-medium text-gray-700">How did you find us? *</label>
+                                <select id="referral_source" name="referral_source" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                                    <option value="" disabled selected>Please select an option</option>
+                                    <option value="Google search">Google search</option>
+                                    <option value="The Homemag">The Homemag</option>
+                                    <option value="Craigslist ad">Craigslist ad</option>
+                                    <option value="Referral from a friend">Referral from a friend</option>
+                                    <option value="Yelp">Yelp</option>
+                                    <option value="Houzz">Houzz</option>
+                                </select>
+                            </div>
+
                             <!-- Project Details -->
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700">Project Details *</label>
                                 <textarea id="message" name="message" required rows="4" placeholder="Tell us about your project" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest"></textarea>
                             </div>
+
+                            <!-- hCaptcha -->
+                            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
 
                             <!-- Submit Button -->
                             <button type="submit" class="w-full bg-forest text-white py-3 rounded-lg hover:bg-lime transition-colors">
