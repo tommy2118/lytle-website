@@ -1,6 +1,6 @@
 # Static Site Specification
 
-**Version:** 1.4.0
+**Version:** 1.5.0
 **Last Updated:** 9 January 2026
 **Author:** Tommy A. Caruso Sr.
 
@@ -1973,10 +1973,42 @@ Sites built to this specification serve as reference implementations:
 1. **carpinte.ro** — Woodworking portfolio
 2. **nomad-theater-company** — Theater company website
 3. **thedbtresource.com** — Educational resource site (DBT/mental health)
+4. **lytle-landscape.com** — Landscaping business (migration from static HTML)
 
 ---
 
 ## APPENDIX D: Changelog
+
+### v1.5.0 (9 January 2026)
+
+Learnings from lytle-landscape migration:
+
+**Added:**
+- GitHub Pages API configuration: `gh api repos/OWNER/REPO/pages -X PUT -f build_type=workflow`
+- Web3Forms + hCaptcha integration pattern for contact forms
+- Referral source dropdown pattern ("How did you find us?")
+- CNAME file should be in `src/` (or `src/assets/`) to get copied to `dist/`
+
+**Deployment section updates:**
+- When migrating existing sites from branch deployment to Actions deployment, a legacy `pages-build-deployment` workflow may run alongside your custom workflow
+- Configure Pages source via API **before** pushing changes, or re-run your workflow after the legacy one completes
+- The API call sets `build_type: workflow` which tells GitHub to use your custom Actions workflow
+
+**Pattern notes:**
+- hCaptcha integration requires: (1) Web3Forms script in `<head>`, (2) `<div class="h-captcha" data-sitekey="KEY">` in form before submit button
+- Referral source dropdown helps track marketing effectiveness
+- Images with spaces in filenames work but should be renamed to lowercase-hyphenated per naming conventions
+
+**Form integration example:**
+```html
+<!-- In head.njk -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+<!-- In form -->
+<div class="h-captcha" data-sitekey="YOUR-SITEKEY"></div>
+```
+
+---
 
 ### v1.4.0 (9 January 2026)
 
