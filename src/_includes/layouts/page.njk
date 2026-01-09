@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="container mx-auto px-4 py-12">
+  {% if title %}
+  <h1 class="text-4xl font-bold text-forest mb-8">{{ title }}</h1>
+  {% endif %}
+
+  <div class="prose max-w-none">
+    {{ content | safe }}
+  </div>
+</div>

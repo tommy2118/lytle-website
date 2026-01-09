@@ -1,0 +1,164 @@
+/* =============================================================================
+   TAILWIND CSS 4.x ENTRY POINT
+   ============================================================================= */
+
+@import "tailwindcss";
+
+/* =============================================================================
+   SOURCE PATHS
+
+   Tell Tailwind where to scan for class usage. Required in Tailwind 4.
+   Without this, Tailwind won't detect classes in your templates.
+   ============================================================================= */
+
+@source "../../../src/**/*.njk";
+@source "../../../src/**/*.md";
+@source "../../../src/**/*.html";
+
+/* =============================================================================
+   THEME CONFIGURATION
+
+   Tailwind 4 uses CSS-first configuration. All customizations live here.
+   Reference: https://tailwindcss.com/docs/theme
+   ============================================================================= */
+
+@theme {
+  /* ---------------------------------------------------------------------------
+     COLORS
+
+     Custom brand colors for Lytle Landscape
+     --------------------------------------------------------------------------- */
+
+  --color-forest: #2C5530;
+  --color-lime: #7AB800;
+  --color-spring: #98FB98;
+  --color-sunny: #F0E68C;
+  --color-coral: #FF7F50;
+  --color-sunset: #FFA07A;
+  --color-stone: #333333;
+  --color-sand: #D2B48C;
+}
+
+/* =============================================================================
+   BASE STYLES
+
+   Global element defaults.
+   ============================================================================= */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Improve focus visibility */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* =============================================================================
+   COMPONENTS
+
+   Reusable component classes.
+   ============================================================================= */
+
+@layer components {
+  /* Prose styling for blog content */
+  .prose {
+    h2 {
+      @apply text-2xl font-bold text-forest mt-8 mb-4;
+    }
+    h3 {
+      @apply text-xl font-semibold text-forest mt-6 mb-3;
+    }
+    p {
+      @apply mb-4 leading-relaxed text-gray-700;
+    }
+    ul, ol {
+      @apply mb-4 pl-6 space-y-2;
+    }
+    li {
+      @apply text-gray-700;
+    }
+    a {
+      @apply text-forest underline hover:text-lime;
+    }
+    blockquote {
+      @apply border-l-4 border-forest pl-4 italic my-4 text-gray-600;
+    }
+    img {
+      @apply rounded-lg my-6;
+    }
+  }
+
+  /* Service card hover effect */
+  .service-card {
+    @apply bg-white rounded-xl shadow-lg p-8 transform transition-all duration-300;
+  }
+  .service-card:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+
+  /* Project card */
+  .project-card {
+    @apply overflow-hidden rounded-lg shadow-lg;
+  }
+  .project-card img {
+    @apply w-full h-64 object-cover transform transition-transform duration-500;
+  }
+  .project-card:hover img {
+    @apply scale-105;
+  }
+}
+
+/* =============================================================================
+   UTILITIES
+
+   Custom utility classes.
+   ============================================================================= */
+
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Image hover wrapper */
+  .image-hover-wrapper {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  .image-hover-wrapper:hover {
+    @apply -translate-y-1;
+  }
+}
+
+/* =============================================================================
+   PRINT STYLES
+   ============================================================================= */
+
+@media print {
+  nav, footer, button, [data-controller] {
+    display: none !important;
+  }
+
+  body, main, article {
+    background: white !important;
+    color: #1a1a1a !important;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  p, li, blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Lytle Landscape",
+  "title": "Expert Garden Design",
+  "tagline": "Orange County's Premier Horticulturist & Landscape Designer",
+  "subtitle": "Steve Lytle - CCN & Professional Horticulturist",
+  "description": "Transform your outdoor space with Orange County's premier horticultural expert. Expert landscape design, plant selection, and garden consultation by Steve Lytle, CCN & Professional Horticulturist in Orange County, California.",
+  "url": "https://lytle-landscape.com",
+  "phone": "(949) 525-7929",
+  "phoneRaw": "9495257929",
+  "license": "C27-743494",
+  "author": {
+    "name": "Steve Lytle",
+    "credentials": "CCN & Professional Horticulturist"
+  },
+  "language": "en",
+  "theme": {
+    "color": "#2C5530"
+  },
+  "analytics": {
+    "ga4": "G-X3PQC5JE31"
+  },
+  "forms": {
+    "web3formsKey": "87b5bf60-ea4b-49a1-9b8e-070b03963316"
+  }
+}

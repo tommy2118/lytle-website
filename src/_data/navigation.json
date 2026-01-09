@@ -1,0 +1,19 @@
+{
+  "main": [
+    { "label": "Home", "url": "/" },
+    { "label": "About", "url": "/#about" },
+    { "label": "Services", "url": "/#services" },
+    { "label": "Projects", "url": "/#projects" },
+    { "label": "Blog", "url": "/#blog" },
+    { "label": "Contact", "url": "/#contact" }
+  ],
+  "services": [
+    { "label": "Garden Consultation", "url": "/garden-consultation/" },
+    { "label": "Plant Selection", "url": "/plant-selection/" },
+    { "label": "Hardscaping", "url": "/hardscaping/" },
+    { "label": "Irrigation Systems", "url": "/irrigation-systems/" },
+    { "label": "Landscape Lighting", "url": "/landscape-lighting/" },
+    { "label": "Soil Health", "url": "/soil-health/" }
+  ],
+  "footer": []
+}

@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="py-16">
+  {# Hero Section #}
+  <header class="text-center py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl font-bold text-forest mb-6">{{ title }}</h1>
+      {% if date %}
+      <time datetime="{{ date | isoDate }}" class="text-gray-500">
+        {{ date | readableDate }}
+      </time>
+      {% endif %}
+    </div>
+  </header>
+
+  {# Back to Blog Link #}
+  <div class="container mx-auto px-4 py-8">
+    <a href="/#blog" class="inline-flex items-center gap-2 text-forest hover:text-lime transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Back to Blog
+    </a>
+  </div>
+
+  {# Content #}
+  <div class="container mx-auto px-4">
+    <div class="prose prose-lg max-w-4xl mx-auto">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>

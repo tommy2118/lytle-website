@@ -1,0 +1,48 @@
+<header class="fixed w-full z-50 bg-forest text-white shadow-lg">
+  <nav class="container mx-auto px-4" data-controller="mobile-nav">
+    <div class="flex justify-between items-center py-4">
+      {# Logo / Site Name #}
+      <a href="/" class="text-2xl font-bold hover:text-spring">
+        <span class="block text-sm text-spring">{{ site.subtitle }}</span>
+        {{ site.name }}
+      </a>
+
+      {# Desktop Navigation #}
+      <nav class="hidden md:flex items-center space-x-8">
+        {% for item in navigation.main %}
+        <a href="{{ item.url }}" class="hover:text-spring transition-colors">
+          {{ item.label }}
+        </a>
+        {% endfor %}
+        <a href="tel:{{ site.phoneRaw }}" class="bg-lime text-stone px-4 py-2 rounded-lg hover:bg-spring transition-colors">
+          {{ site.phone }}
+        </a>
+      </nav>
+
+      {# Mobile Menu Button #}
+      <button
+        type="button"
+        class="md:hidden text-2xl p-2 -mr-2"
+        data-action="click->mobile-nav#toggle"
+        data-mobile-nav-target="button"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+      >
+        <i class="fa fa-bars" data-mobile-nav-target="iconOpen"></i>
+        <i class="fa fa-times hidden" data-mobile-nav-target="iconClose"></i>
+      </button>
+    </div>
+
+    {# Mobile Navigation #}
+    <div data-mobile-nav-target="menu" class="hidden md:hidden py-4 space-y-4">
+      {% for item in navigation.main %}
+      <a href="{{ item.url }}" class="block hover:text-spring transition-colors">
+        {{ item.label }}
+      </a>
+      {% endfor %}
+      <a href="tel:{{ site.phoneRaw }}" class="block hover:text-spring transition-colors">
+        {{ site.phone }}
+      </a>
+    </div>
+  </nav>
+</header>
