@@ -20,7 +20,14 @@
     { "label": "Tustin & North Tustin", "url": "/service-areas/tustin/" },
     { "label": "Orange", "url": "/service-areas/orange/" },
     { "label": "Villa Park", "url": "/service-areas/villa-park/" },
-    { "label": "Fullerton", "url": "/service-areas/fullerton/" }
+    { "label": "Fullerton", "url": "/service-areas/fullerton/" },
+    { "label": "Lake Forest", "url": "/service-areas/lake-forest/" },
+    { "label": "Irvine", "url": "/service-areas/irvine/" },
+    { "label": "Costa Mesa", "url": "/service-areas/costa-mesa/" },
+    { "label": "Newport Beach", "url": "/service-areas/newport-beach/" },
+    { "label": "Santa Ana", "url": "/service-areas/santa-ana/" },
+    { "label": "Mission Viejo", "url": "/service-areas/mission-viejo/" },
+    { "label": "Rancho Santa Margarita", "url": "/service-areas/rancho-santa-margarita/" }
   ],
   "footer": []
 }
