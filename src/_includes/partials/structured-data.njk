@@ -1,0 +1,34 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ site.business.type | safe }}",
+  "name": "{{ site.name | safe }}",
+  "legalName": "{{ site.business.legalName | safe }}",
+  "url": "{{ site.url | safe }}",
+  "telephone": "{{ site.phone | safe }}",
+  "foundingDate": "{{ site.business.foundingYear | safe }}",
+  "priceRange": "{{ site.business.priceRange | safe }}",
+  "image": "{{ site.url | safe }}/assets/images/og-image.jpg",
+  "description": "{{ site.description | safe }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ site.business.address.addressLocality | safe }}",
+    "addressRegion": "{{ site.business.address.addressRegion | safe }}",
+    "postalCode": "{{ site.business.address.postalCode | safe }}",
+    "addressCountry": "{{ site.business.address.addressCountry | safe }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ site.business.geo.latitude }},
+    "longitude": {{ site.business.geo.longitude }}
+  },
+  "areaServed": [
+    {% for area in site.business.areaServed %}
+    {
+      "@type": "City",
+      "name": "{{ area | safe }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
