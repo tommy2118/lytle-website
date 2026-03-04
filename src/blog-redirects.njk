@@ -1,0 +1,20 @@
+---
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+permalink: "/content/posts/{{ post.fileSlug }}/"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ post.url }}">
+  <link rel="canonical" href="{{ site.url }}{{ post.url }}">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>This page has moved to <a href="{{ post.url }}">{{ post.url }}</a>.</p>
+</body>
+</html>

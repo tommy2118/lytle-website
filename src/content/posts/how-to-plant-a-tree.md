@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: Professional Guide to Tree Planting
-description: Learn professional techniques for proper tree planting from Orange County's premier horticulturist. Expert guidance on hole depth, root care, and soil preparation.
+description: Learn professional techniques for proper tree planting from Orange County's premier horticulturist. Expert guidance on hole depth, root care, and soil prep.
 date: 2025-01-30
 image: /assets/images/tree-planting-guide.webp
 ---
