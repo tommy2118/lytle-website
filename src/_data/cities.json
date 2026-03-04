@@ -18,5 +18,40 @@
     "name": "Fullerton",
     "slug": "fullerton",
     "url": "/service-areas/fullerton/"
+  },
+  {
+    "name": "Lake Forest",
+    "slug": "lake-forest",
+    "url": "/service-areas/lake-forest/"
+  },
+  {
+    "name": "Irvine",
+    "slug": "irvine",
+    "url": "/service-areas/irvine/"
+  },
+  {
+    "name": "Costa Mesa",
+    "slug": "costa-mesa",
+    "url": "/service-areas/costa-mesa/"
+  },
+  {
+    "name": "Newport Beach",
+    "slug": "newport-beach",
+    "url": "/service-areas/newport-beach/"
+  },
+  {
+    "name": "Santa Ana",
+    "slug": "santa-ana",
+    "url": "/service-areas/santa-ana/"
+  },
+  {
+    "name": "Mission Viejo",
+    "slug": "mission-viejo",
+    "url": "/service-areas/mission-viejo/"
+  },
+  {
+    "name": "Rancho Santa Margarita",
+    "slug": "rancho-santa-margarita",
+    "url": "/service-areas/rancho-santa-margarita/"
   }
 ]
