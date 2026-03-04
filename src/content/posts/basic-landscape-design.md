@@ -19,7 +19,7 @@ Master the fundamentals of landscape design with expert insights from Orange Cou
 ### Design Considerations
 - Purpose and functionality
 - Style selection
-- Long-term growth planning
+- [Long-term growth](/blog/how-to-plant-a-tree/) planning
 - Maintenance requirements
 
 ## Understanding Purpose and Function
@@ -38,13 +38,13 @@ While there are various design styles to choose from (Italian, tropical, southwe
 
 ## Layout and Planning
 
-### Hardscape First
+### [Hardscape First](/hardscaping/)
 - Begin with patios and walkways
 - Define raised planters
 - Plan ground-level planting areas
 - Consider lawn space requirements
 
-### Plant Selection
+### [Plant Selection](/plant-selection/)
 - Privacy screening considerations
 - Shade requirements
 - Specimen tree placement

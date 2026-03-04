@@ -49,7 +49,7 @@ When working with poorly drained clay soil, avoid glazing - a smooth barrier tha
 - Create a slightly raised center bottom
 - This promotes water dispersion and prevents pooling
 
-## Seasonal Planting Guide
+## [Seasonal Planting Guide](/blog/maintenance/)
 
 ### Fall Planting (Recommended)
 
@@ -75,7 +75,7 @@ Container trees require special attention during planting:
 - Gently tease apart compressed roots
 - Consider "butterflying" woody compacted roots
 
-## Soil Preparation and Backfilling
+## [Soil Preparation](/soil-health/) and Backfilling
 
 Follow these steps for optimal results:
 
