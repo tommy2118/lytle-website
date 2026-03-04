@@ -10,6 +10,7 @@
   "services": [
     { "label": "Garden Consultation", "url": "/garden-consultation/" },
     { "label": "Plant Selection", "url": "/plant-selection/" },
+    { "label": "Vegetable Gardens", "url": "/vegetable-gardens/" },
     { "label": "Hardscaping", "url": "/hardscaping/" },
     { "label": "Irrigation Systems", "url": "/irrigation-systems/" },
     { "label": "Landscape Lighting", "url": "/landscape-lighting/" },
