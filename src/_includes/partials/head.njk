@@ -43,6 +43,9 @@
 {# Stylesheet #}
 <link rel="stylesheet" href="/assets/css/main.css">
 
+{# Structured Data #}
+{% include "partials/structured-data.njk" %}
+
 {# Google Analytics #}
 {% if site.analytics.ga4 %}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.ga4 }}"></script>

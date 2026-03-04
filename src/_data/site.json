@@ -21,5 +21,34 @@
   },
   "forms": {
     "web3formsKey": "87b5bf60-ea4b-49a1-9b8e-070b03963316"
+  },
+  "business": {
+    "type": "Landscaper",
+    "legalName": "Lytle Landscape & Construction",
+    "foundingYear": "1982",
+    "priceRange": "$$",
+    "address": {
+      "addressLocality": "Tustin",
+      "addressRegion": "CA",
+      "postalCode": "92780",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "latitude": 33.7175,
+      "longitude": -117.8311
+    },
+    "areaServed": [
+      "Tustin",
+      "North Tustin",
+      "Orange",
+      "Villa Park",
+      "Fullerton",
+      "Lake Forest",
+      "Irvine",
+      "Costa Mesa",
+      "Newport Beach",
+      "Mission Viejo",
+      "Santa Ana"
+    ]
   }
 }
