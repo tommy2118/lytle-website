@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Tustin & North Tustin",
+    "slug": "tustin",
+    "url": "/service-areas/tustin/"
+  },
+  {
+    "name": "Orange",
+    "slug": "orange",
+    "url": "/service-areas/orange/"
+  },
+  {
+    "name": "Villa Park",
+    "slug": "villa-park",
+    "url": "/service-areas/villa-park/"
+  },
+  {
+    "name": "Fullerton",
+    "slug": "fullerton",
+    "url": "/service-areas/fullerton/"
+  }
+]

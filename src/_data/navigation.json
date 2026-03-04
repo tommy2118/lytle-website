@@ -16,5 +16,11 @@
     { "label": "Landscape Lighting", "url": "/landscape-lighting/" },
     { "label": "Soil Health", "url": "/soil-health/" }
   ],
+  "serviceAreas": [
+    { "label": "Tustin & North Tustin", "url": "/service-areas/tustin/" },
+    { "label": "Orange", "url": "/service-areas/orange/" },
+    { "label": "Villa Park", "url": "/service-areas/villa-park/" },
+    { "label": "Fullerton", "url": "/service-areas/fullerton/" }
+  ],
   "footer": []
 }
