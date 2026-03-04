@@ -14,7 +14,7 @@ Maintaining your garden is easier when you break it down by season. Here's a gui
 
 ### Spring
 
-- Inspect irrigation systems for damage or clogs
+- [Inspect irrigation systems](/irrigation-systems/) for damage or clogs
 - Apply mulch to retain moisture and suppress weeds
 - Plant annuals and vegetables
 - Prune flowering shrubs after they bloom
@@ -44,7 +44,7 @@ Maintaining your garden is easier when you break it down by season. Here's a gui
 
 Maximize the health and beauty of your garden with these expert strategies:
 
-### Soil Health
+### [Soil Health](/soil-health/)
 
 Regularly test your soil and amend it with compost to keep it nutrient-rich.
 
@@ -52,7 +52,7 @@ Regularly test your soil and amend it with compost to keep it nutrient-rich.
 
 Use organic mulch to retain moisture, regulate soil temperature, and improve soil quality over time.
 
-### Native Plants
+### [Native Plants](/blog/native-plants/)
 
 Choose plants that are adapted to your local climate for lower maintenance and water use.
 
@@ -62,7 +62,7 @@ Prune regularly to encourage healthy growth and remove dead or diseased branches
 
 ### Water Wisely
 
-Install drip irrigation systems for targeted watering and reduced waste.
+Install [drip irrigation systems](/irrigation-systems/) for targeted watering and reduced waste.
 
 ## Create Your Dream Garden
 

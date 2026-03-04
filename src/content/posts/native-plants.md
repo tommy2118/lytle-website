@@ -1,19 +1,19 @@
 ---
 layout: layouts/post.njk
 title: Guide to Native Plants in Orange County
-description: Discover how native plants can transform your garden into a sustainable haven.
+description: Explore the best native plants for Orange County gardens. California poppies, toyon, sage, and deer grass — low water, low maintenance, high impact.
 date: 2024-12-28
 image: /assets/images/native-plants-hero.jpeg
 ---
 
-Discover how native plants can transform your garden into a sustainable haven.
+Discover how native plants can transform your garden into a sustainable haven. Need help choosing the right plants? Explore our [plant selection services](/plant-selection/).
 
 ## Why Choose Native Plants?
 
 Native plants offer numerous benefits, from conserving water to creating a thriving habitat for local wildlife.
 
 - Reduced water usage
-- Minimal maintenance
+- [Minimal maintenance](/blog/maintenance/)
 - Habitat for pollinators
 - Adaptation to local soil and climate
 

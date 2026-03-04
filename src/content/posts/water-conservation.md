@@ -3,7 +3,7 @@ layout: layouts/post.njk
 title: Water Conservation in Modern Landscaping
 description: Discover how innovative landscaping techniques can help conserve water while maintaining a stunning outdoor space.
 date: 2024-01-10
-image: /assets/images/water-conservation.jpeg
+image: /assets/images/water-conservation.webp
 ---
 
 Discover how innovative landscaping techniques can help conserve water while maintaining a stunning outdoor space.
@@ -15,15 +15,15 @@ Water is a precious resource, and modern landscaping techniques aim to use it wi
 ## Top Techniques for Water Conservation
 
 ### 1. Smart Irrigation Systems
-Smart irrigation controllers adjust watering schedules based on weather and soil moisture, ensuring plants receive the right amount of water without waste.
+[Smart irrigation controllers](/irrigation-systems/) adjust watering schedules based on weather and soil moisture, ensuring plants receive the right amount of water without waste.
 
-### 2. Drought-Resistant Plants
+### 2. [Drought-Resistant Plants](/blog/native-plants/)
 Choose native or drought-tolerant plants that thrive in local conditions with minimal water, reducing maintenance and conserving resources.
 
 ### 3. Mulching
 Apply organic mulch around plants to retain soil moisture, suppress weeds, and improve soil health.
 
-### 4. Permeable Hardscapes
+### 4. [Permeable Hardscapes](/hardscaping/)
 Use permeable materials for patios and walkways to allow rainwater to infiltrate the ground instead of running off into storm drains.
 
 ## Transform Your Landscape Today
