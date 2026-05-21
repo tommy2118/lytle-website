@@ -1,0 +1,82 @@
+intent: >
+  Remove 18 fabricated client testimonials from 6 service pages and
+  replace each with a 'Steve's Approach to <Service>' principles section
+  that's honest (Steve's voice, not invented clients).
+
+slice: "?/?"
+kind: fix
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared: []
+  actual:
+    - src/hardscaping.njk
+    - src/landscape-lighting.njk
+    - src/irrigation-systems.njk
+    - src/vegetable-gardens.njk
+    - src/plant-selection.njk
+    - src/garden-consultation.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: Eleventy dev server rebuild on each file save (clean, no errors), Chrome verification on /hardscaping/ confirmed new headings render and zero blockquotes / zero fake names in served HTML"
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static template content replacement. No logic. Verified by build
+    output (Eleventy wrote 35 files cleanly on each save) and DOM
+    inspection on one representative page.
+
+assumptions:
+  - "All 6 testimonial blocks are placeholders, not real clients (corroborated by the same Sarah/Michael/Sarah pattern repeated across pages with different feedback — no real client said all those things)"
+  - "Steve will eventually replace the principles copy with his actual voice; current text is best-guess of how he'd describe his approach"
+  - "Real testimonials can be added later as a separate section without disrupting the principles block"
+
+specifications:
+  - "Service pages display author-voiced design principles instead of client-voiced testimonials when real testimonials aren't available"
+  - "Principles section uses the same shape as newport-beach.njk (bg-gray-50 card on bg-white section, or bg-white card on bg-gray-50 section, depending on existing bg alternation)"
+  - "Section heading pattern: 'Steve's Approach to <Service>' (consultation page uses 'What to Expect from a Consultation' because that page is itself the consultation, not a service)"
+
+deviations_from_plan: >
+  No plan file for this slice — ad-hoc cleanup work in response to user
+  asking 'clean up the testimonials on the other service pages'. Followed
+  the established pattern from the in-flight PR #8 newport-beach
+  principles section.
+
+addresses: []
+
+trade_offs: >
+  Could have left these as a 'real testimonials wanted' TODO, but the
+  invented quotes are deceitful in the meantime. Better to ship honest
+  principles content now and add real testimonials when available than to
+  leave fakery live. Also: scoping this as a separate PR off master keeps
+  PR #8 reviewable as-is.
+
+interfaces: {}
+
+self_review:
+  consistency: >
+    All 6 sections use the same markup pattern as newport-beach.njk's
+    'How Steve Designs for Newport Beach' section. Card bg alternates
+    to match each page's existing section bg-color (preserves visual
+    alternation in the layout).
+  honesty: >
+    Removes the core deceit pattern (invented quotes attributed to fake
+    clients). Principles copy is best-guess Steve voice — flagged for
+    Steve to rewrite when convenient, but the worst-case outcome here
+    (Steve's voice approximated) is far better than the prior state
+    (Lisa M. claiming Steve designed her favorite spot).
+  pre_existing_debt: >
+    These were invented in the original site build, not by this session.
+    Cleanup is bounded to the testimonial blocks. Other pages (homepage
+    testimonials at index.njk, homepage 'Testimonials Modal') NOT
+    touched — different context, separate decision.
+
+confidence: high
+reviewer_attention:
+  - "All 6 files: skim Steve's principle copy and rewrite anything that doesn't sound like him. The voice approximation is the weakest link in this PR"
