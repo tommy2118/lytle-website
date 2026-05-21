@@ -1,0 +1,71 @@
+intent: >
+  Add proof (portfolio photos) and substance (design principles) to the
+  Newport Beach service page — the highest-dwell service area in GA4 — so
+  it converts as well as it pulls traffic.
+
+slice: 2/4
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/service-areas/newport-beach.njk
+  actual:
+    - src/service-areas/newport-beach.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: Chrome via mcp__claude-in-chrome — verified headings, image natural dimensions (1024x768, 1024x576, 1024x768), badge text, blockquote count (zero after honesty fix), and 10 inline cross-links resolve"
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template change. No logic, no state, no data. Verified
+    by rendering in dev server and inspecting DOM.
+
+assumptions:
+  - "The three portfolio images (poolgarden12.webp, outdoor-fireplace-seating.webp, project3.jpg) are Steve's work and OK to display"
+  - "Visitors won't recognize these as portfolio examples from elsewhere on the site (outdoor-fireplace-seating.webp is also on the homepage as 'Luxury Outdoor Living Space' — duplication is fine for showcasing the same work)"
+  - "Steve will eventually replace the design-principles copy with his actual voice; current text is a best-guess of what he'd say"
+
+specifications:
+  - "Project cards display style descriptors (Mediterranean / Outdoor Living / Hillside) rather than neighborhood names — no false attribution"
+  - "Section heading 'Selected Work' (not 'Recent Projects in Newport Beach') signals these are portfolio examples"
+  - "Intro copy explicitly says 'representative projects', not Newport Beach specific"
+  - "Design principles section replaces invented client testimonials — the standard going forward when real testimonials aren't available"
+
+deviations_from_plan: >
+  Plan said 'project cards with TODO Steve markers for neighborhoods'.
+  User flagged that as deceitful — pivoted to style-descriptor badges and
+  generic-portfolio framing. Same pivot applied to the testimonials block:
+  plan said placeholder testimonials with TODO markers; user chose 'reframe
+  as design philosophy', so the entire blockquote block was replaced with
+  a principles section attributed to Steve. Honesty-driven, not scope creep.
+
+trade_offs: >
+  Reusing outdoor-fireplace-seating.webp here AND on the homepage means
+  the same image appears twice for visitors who hit both pages. Decided
+  the cost is low — different framing, and Steve's portfolio is finite.
+  Alternative would have been to leave this card image-less; rejected
+  because the visual makes the section.
+
+self_review:
+  consistency: >
+    Card structure reuses the Services Grid pattern from earlier in the
+    file (rounded-lg shadow, grid md:grid-cols-3, p-6/p-8 internal padding).
+    Design-principles cards use the same shape as Services Grid.
+  metz: N/A — template file, no Ruby.
+  honesty: >
+    Two passes here. First version had invented neighborhoods on cards
+    ("Corona del Mar", "Balboa Peninsula") and invented client quotes
+    (Sarah M., David R.). User flagged. Both removed in second pass.
+    Worth flagging as a pattern to watch in future content scaffolding.
+
+confidence: high
+reviewer_attention:
+  - "src/service-areas/newport-beach.njk:79-108  — three project cards. The portfolio images are real Lytle work; the descriptions are best-guess from visual inspection. Steve should sanity-check the descriptions match the actual projects"
+  - "src/service-areas/newport-beach.njk:113-133  — design principles section. The copy is in 'I think this is how Steve would say it' voice — Steve should rewrite to actual voice"
