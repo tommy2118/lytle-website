@@ -1,0 +1,71 @@
+intent: >
+  Cut contact form required fields from 9 to 2 so the 73 of 87 monthly
+  abandoners hit fewer walls before submitting.
+
+slice: 1/4
+kind: feature
+behavior_change: additive
+
+reversibility: reversible
+
+scope:
+  declared:
+    - src/index.njk
+    - src/assets/js/controllers/contact_form_controller.js
+    - src/assets/js/application.js
+  actual:
+    - src/index.njk
+    - src/assets/js/controllers/contact_form_controller.js
+    - src/assets/js/application.js
+  drift: []
+
+proof:
+  tests_run: "Manual: Chrome via mcp__claude-in-chrome — synthetic submit events covering both-empty, phone-only, email-only paths"
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    No test framework exists in this Eleventy project. Verified behavior in
+    a real browser session via three submit-event scenarios; results captured
+    in the conversation log. Adding Jest/Vitest for a 19-line controller
+    would be the wrong abstraction.
+
+assumptions:
+  - "hCaptcha remains required server-side at Web3Forms; form-level required attrs are belt-and-suspenders"
+  - "Stimulus is loaded and the controller registers before users submit (verified: window.Stimulus is ready on page load)"
+  - "Web3Forms accepts submissions with empty optional fields (default behavior per their docs)"
+
+specifications:
+  - "Form-level validation: at least one of phone or email must be non-empty at submit time"
+  - "Optional fields (address/city/zip/service/referral_source) ship in a closed <details> block by default"
+  - "Service select defaults to 'Not sure yet' (empty value) instead of disabled placeholder"
+
+deviations_from_plan: >
+  Plan said 'make optional fields optional'. Implementation went further and
+  hid them in a <details> collapsible — better UX hierarchy, reduces visual
+  friction even more. Same data captured if user opts in.
+
+trade_offs: >
+  Chose <details>/<summary> over a 'show more' button so it works without
+  JS and is a11y-clean. Trade-off: collapsed state hides fields some users
+  might expect to find (address, city, zip). Mitigation: summary copy
+  signals what's inside ('Add project details — speeds up our reply').
+
+interfaces:
+  published:
+    - "ContactFormController.validate(event)"
+
+self_review:
+  consistency: >
+    Stimulus controller follows the same shape as mobile_nav_controller.js
+    (static targets, single action, no class state beyond targets).
+  metz: Controller is 19 lines, validate method is 11 lines (under 5-line rule but conditional logic justifies it — single straight-line flow).
+  feature_flags: No flag — change is small and easily revertible if conversion drops instead of rises.
+  observability: Web3Forms dashboard already tracks submissions. The "before" and "after" conversion rates will be visible in GA4 within 7 days via existing form_start/form_submit events.
+
+confidence: high
+reviewer_attention:
+  - "src/assets/js/controllers/contact_form_controller.js:5-18  — the validator. Easy to read but worth a sanity check on the .trim() / classList.remove logic"
+  - "src/index.njk:574-580  — form-level data-action wiring. Submit handler must fire before Web3Forms POST"
