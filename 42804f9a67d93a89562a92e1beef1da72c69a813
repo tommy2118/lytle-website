@@ -1,0 +1,103 @@
+intent: >
+  Build the symmetric pair to /after-tree-removal/ for the designer
+  referral funnel. Landscape designers send homeowners to Steve for the
+  install side; this page is where those homeowners land and convert.
+  Distinct from /partners/ which is the designer-aimed outreach asset;
+  this page is homeowner-aimed.
+
+slice: 4/4
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/from-your-designer.njk
+  actual:
+    - src/from-your-designer.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: dev server + Chrome via mcp__claude-in-chrome. Verified 200 response, H1 + 4 H2s render in order, 8 H3s (4 build cards + 4 relationship cards), 3 internal cross-links to existing service pages resolve, 4 CTA links to /#contact, TODO Steve markers stripped (0 leaked), 0 em-dashes in served HTML."
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template, no logic. Verified via dev server build and
+    DOM inspection.
+
+assumptions:
+  - "Steve installs designer-led work faithfully without substituting plants or rerouting hardscape without designer sign-off. Load-bearing on the page's central pitch ('the design stays the design'). If Steve actually has a different working relationship with designers in practice, this card needs softening."
+  - "Designers are willing to refer install work to Steve under the framing 'Steve doesn't poach.' If a specific designer relationship has different mechanics (commission share, contractor introductions only, etc.), that's a 1:1 conversation, not a page change."
+  - "The /from-your-designer/ URL is a path the designer will share with the homeowner. Discoverable only via direct link; not in main nav."
+
+specifications:
+  - "Page refuses to position Steve as a design competitor. Hero copy explicitly defers to the designer ('your designer drew the plans')."
+  - "Page refuses to use 'improve' or 'adjust' language about the design. Steve builds; the designer designs."
+  - "When site reality conflicts with the plan, the path goes BACK to the designer (specified in card #1 of 'How Steve works with your designer'). The page commits Steve to that workflow."
+  - "Plant substitution: flagged to the designer with options, not made unilaterally. Specified explicitly in the plant card."
+  - "URL is /from-your-designer/ — file-based routing from src/from-your-designer.njk."
+
+deviations_from_plan: >
+  Plan said this slice 'will follow in a separate PR' after slice 3. That
+  happened. No deviation from the plan as approved.
+
+  One technical note: the YAML frontmatter required quoting the description
+  string because the body contains 'the install: hardscape...' and the
+  unquoted colon broke gray-matter parsing. Caught during local verification
+  (first attempt returned 404 because Eleventy couldn't build the page).
+  Worth a memory entry: when a description or title contains a colon, quote
+  the YAML value at write time.
+
+trade_offs: >
+  Chose 4 build cards (plants, hardscape, irrigation, lighting) and skipped
+  soil and lawn restoration even though Steve also handles those. Reasoning:
+  designer-led projects are typically new installs or significant
+  renovations where the design covers the whole picture, including soil
+  prep as a line item under hardscape or planting. Adding soil and lawn
+  cards would make the page feel more like a generic services list than a
+  designer-handoff narrative. If Steve wants those layers added, they fit
+  the existing card grid trivially.
+
+  Chose to mirror the /after-tree-removal/ section structure deliberately,
+  not as boilerplate. Both pages serve the 'referral landing for a
+  specific homeowner moment' pattern; the symmetry is a feature, not lazy
+  copying.
+
+interfaces:
+  consumed:
+    - "/#contact (existing) — page CTAs link here"
+    - "/plant-selection/ (existing) — internal link from plant card"
+    - "/hardscaping/ (existing) — internal link from hardscape card"
+    - "/irrigation-systems/ (existing) — internal link from irrigation card"
+  published:
+    - "/from-your-designer/ URL — designer-referral landing target, discoverable only via direct link"
+
+self_review:
+  consistency: >
+    Section structure parallels /after-tree-removal/: hero, context,
+    what-Steve-does cards, relationship/concierge spine, CTA. Same
+    Tailwind vocabulary throughout. Card icon + h3 + p pattern matches
+    the rest of the site.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    Page has one job: convert a homeowner whose landscape designer just
+    sent them here. Refuses to talk to designers (those see /partners/),
+    refuses to suggest design changes, refuses to appear in main nav.
+    Drawable: 5 sections, single column, single CTA path. Joints are
+    visible: cross-links to /plant-selection/, /hardscaping/, /irrigation-
+    systems/ at exactly the moments deeper service detail would help.
+  honesty: >
+    The 'design stays the design' commitment is load-bearing. If Steve
+    in practice does take more design liberties than the page commits to,
+    flag that here so the page can soften. Best-guess Steve voice across
+    the file; TODO marker in source.
+
+confidence: high
+reviewer_attention:
+  - "src/from-your-designer.njk:53-58 (the 'design stays the design' card) — load-bearing commitment. If Steve actually does substitute plants without checking with the designer in some scenarios, this card needs caveat language"
+  - "src/from-your-designer.njk:73-77 (the 'Steve respects the relationship' card) — frames Steve as the build partner, not a design competitor. Worth a sanity check that the tone reads peer-to-design rather than under-design"
+  - "src/from-your-designer.njk:43-47 (plant sourcing card) — 'flags back to the designer with options, not substitutions.' Specific commitment about how plant unavailability is handled. Sanity-check that this matches Steve's actual workflow"
