@@ -1,0 +1,84 @@
+intent: >
+  Add a dedicated homepage section that names Steve's concierge positioning
+  out loud and walks through what it looks like, so the rest of the site
+  (and the upcoming tree-removal and partners pages) can inherit from a
+  clearly stated spine instead of generic landscape-design language.
+
+slice: 1/3
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/index.njk
+  actual:
+    - src/index.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: npm run dev + Chrome via mcp__claude-in-chrome — verified section order (about -> working-with-steve -> services -> projects -> blog -> contact), all 4 cards rendered with correct headings, TODO markers stripped from served HTML (Nunjucks comment behavior), 2x2 grid on desktop (1352px viewport)"
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template change. No logic, no state, no data flow.
+    Verified by rendering in dev server and DOM inspection.
+
+assumptions:
+  - "Steve will rewrite the placeholder voice in the section intro and the 4 card bodies. Marker comments are in source for him."
+  - "Concierge framing matches Steve's actual self-description. Confirmed with Tommy that this is how Steve thinks of his business; the words are best-guess."
+  - "Inserting between About and Services preserves the page narrative arc (who Steve is -> how he works -> what he offers -> proof -> contact). Verified by reading the H2 order."
+
+specifications:
+  - "Concierge positioning lives in a NAMED section, not as scattered hints in About or 'What to Expect'. The section is the spine."
+  - "Section refuses to know: services, pricing. Those belong to adjacent sections; concierge section is the experience of working with Steve and nothing else."
+  - "Card content uses the same shape established in service-page principles sections (icon + h3 + p, in a grid with inverted card bg vs section bg)."
+  - "Section bg-gray-50 sits between About (gradient ending in white) and Services (gradient starting in white) to create visual rhythm."
+
+deviations_from_plan: >
+  Plan said 'two-three small edits' to About prose. I rewrote both
+  paragraphs more substantively because the original prose was generic
+  'premier landscape design and construction' boilerplate that actively
+  fought the new concierge section. Surfacing because it's an intent-shift
+  within declared scope (About prose was in scope, but the rewrite was
+  heavier than 'tilt the wording slightly').
+
+trade_offs: >
+  Chose bg-gray-50 for the section to create a visual ribbon between two
+  white-ending/starting adjacent sections. Alternative was bg-white which
+  would have given three white sections in a row (flat). Cost of gray-50:
+  card backgrounds had to invert to bg-white for contrast, which is
+  slightly less impactful than bg-gray-50 cards on a bg-white section.
+  Decided the ribbon effect wins.
+
+  Also: kept the section CTA-less. The About section above already has
+  the Schedule Consultation CTA, and the Services section below is itself
+  a CTA grid. Adding a third CTA here would compete. The concierge section
+  primes; it doesn't sell.
+
+interfaces: {}
+
+self_review:
+  consistency: >
+    Card markup pattern reused from newport-beach.njk principles section
+    and the (in-flight PR #9) service-page principles sections — same
+    icon + h3 + p shape, same bg inversion logic, same gap-8 spacing.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    Section has a clear job (name the concierge model) and a clear refusal
+    list (no services, no pricing). The H2 order top-to-bottom reads as
+    one coherent story: who Steve is -> how he works -> what he does ->
+    proof -> contact. Drawable.
+  honesty: >
+    Voice is best-guess Steve. TODO marker is in the source comment so
+    when Steve opens the file he sees it; visitors don't see TODO text
+    because Nunjucks strips it. Same pattern as previous work.
+
+confidence: high
+reviewer_attention:
+  - "src/index.njk:159-191  — the 4 card bodies. These are best-guess Steve voice; flag any phrasing that doesn't sound like him"
+  - "src/index.njk:28-33  — About paragraph rewrite. Heavier than 'tilt the wording'; check it still reads coherently with the new section that follows"
