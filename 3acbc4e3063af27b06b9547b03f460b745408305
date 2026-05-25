@@ -1,0 +1,106 @@
+intent: >
+  Build a peer-to-peer outreach page Steve can link in cold emails to
+  designers, tree services, arborists, etc., and a footer-link entry
+  point so pros browsing the site can find it. Page captures partner
+  inquiries through a form distinct from the homeowner contact form so
+  Steve can filter B2B leads in his inbox.
+
+slice: 3/3
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/partners.njk
+    - src/_includes/partials/footer.njk
+  actual:
+    - src/partners.njk
+    - src/_includes/partials/footer.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: Chrome via mcp__claude-in-chrome. Verified /partners/ returns 200, H1 + 4 H2s render in order, 10 H3s (6 pro-type cards + 4 how-it-works cards), form has correct hidden fields (subject: New Partner Inquiry, from_name distinct, redirect to /thank-you/), required fields are name/company/email/pro_type/message with phone optional, footer 'For Pros' link present on homepage, service page, AND service-area page, polite homeowner redirect link present, zero em-dashes in served HTML, zero TODO Steve leaks."
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template + 5-line footer markup edit. No logic.
+    Verified via dev server rendering and DOM inspection across multiple
+    page types to confirm the footer change is site-wide.
+
+assumptions:
+  - "Web3Forms accepts a custom subject and from_name without configuration on their end. They do; the homeowner form already does this with subject 'New Contact Form Submission'."
+  - "Steve will use his inbox filters or rules to separate 'New Partner Inquiry' subject from 'New Contact Form Submission' subject."
+  - "Reusing /thank-you/ for both homeowner and partner form submissions is acceptable. Could be revisited if partner-specific follow-up copy is wanted."
+  - "Footer link 'For Pros' is sufficient discoverability. Pros mostly arrive via direct link from Steve's outreach, not via footer browsing."
+
+specifications:
+  - "Partner form uses access_key from site.json (same Web3Forms account) but subject 'New Partner Inquiry' to differentiate from homeowner submissions in Steve's inbox."
+  - "Partner form requires: name, company, email, pro_type, message. Phone is optional. (Homeowner form's at-least-one-of-phone-or-email rule does not apply here; email is the B2B baseline)."
+  - "Page lives at /partners/ (Eleventy file-based routing from src/partners.njk)."
+  - "Footer link appears in the copyright row, site-wide, visually quiet."
+  - "Page refuses to appear in main nav. Homepage and main nav stay homeowner-focused."
+  - "Polite homeowner redirect appears beneath the partner form for any homeowner who lands on the page accidentally."
+
+deviations_from_plan: >
+  Plan said 'partner form is distinct from the homeowner contact form'.
+  Implementation reuses the SAME Web3Forms endpoint with a distinct
+  subject, rather than wiring up a separate endpoint. Simpler body plan,
+  same audit trail in Steve's inbox via subject filtering. Surfacing
+  because the word 'distinct' could be read either way; this is the
+  cheaper interpretation.
+
+  Also: plan sketched 'real estate agents prepping listings' in the
+  partner types. Implementation includes that, plus added an 'Other pros'
+  catch-all card for partner types not on the explicit list. Light scope
+  expansion; felt cleaner than forcing every potential partner into one
+  of the five named buckets.
+
+trade_offs: >
+  Chose to edit footer.njk directly (5-line markup change) rather than
+  populate navigation.json's empty 'footer' array and refactor the footer
+  partial to iterate over it. Direct edit is simpler for a single link.
+  If future footer links accumulate (privacy, terms, accessibility), the
+  refactor to data-driven becomes the right move. Flagging as
+  scope-deferred technical debt.
+
+  Chose to ship a 6-card 'who we partner with' grid (not 5 as the plan
+  sketched) because the 'Other pros' card is genuinely useful as a
+  catch-all and the 5-card layout left an awkward orphan in the 3-column
+  grid on desktop. Six fills two rows of three cleanly.
+
+interfaces:
+  consumed:
+    - "Web3Forms /submit endpoint (existing) — partner form posts to same URL as homeowner form"
+    - "/thank-you/ (existing) — redirect target after partner form submission"
+    - "site.forms.web3formsKey (existing data) — same Web3Forms access key as homeowner form"
+  published:
+    - "/partners/ URL — outreach destination, footer-linked, indexable but not in main nav"
+
+self_review:
+  consistency: >
+    Page markup follows the established Lytle pattern: hero, themed
+    content sections with alternating bg, card grids, CTA at end. Form
+    markup mirrors the homeowner form's Tailwind class vocabulary and
+    structure so visual rhythm holds.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    Page has one job: convert a pro inquiry. It refuses to know about
+    homeowner journeys (those have their own pages and forms), refuses
+    to commit to referral-fee structures (1:1 conversation), refuses
+    to appear in main nav (would dilute homepage focus). Drawable: 5
+    sections in a single column, distinct refusal list, clean entry
+    point (footer link), clean exit point (form submit -> thank-you).
+  honesty: >
+    Voice is best-guess Steve. TODO marker in source. Form copy refers
+    to 'Steve' specifically (not 'we' or 'our team') to keep the
+    concierge spine consistent with slices 1 and 2.
+
+confidence: high
+reviewer_attention:
+  - "src/partners.njk:62-90 (the 6 pro-type cards) — content scoping. Should 'Other pros' be removed if Steve wants only the 5 specific types? Should 'Real estate agents' be removed if Steve doesn't want that market?"
+  - "src/partners.njk:127-130 (form hidden fields) — subject 'New Partner Inquiry' is the load-bearing differentiator. If Steve wants something else in his subject line for inbox filtering, change here"
