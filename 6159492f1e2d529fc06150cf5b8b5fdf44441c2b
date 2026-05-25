@@ -1,0 +1,99 @@
+intent: >
+  Build the referral landing page Steve's tree-service partner can link
+  homeowners to directly after a large tree comes out, so the referral
+  funnel has a single high-conversion target rather than dropping
+  homeowners on the generic homepage or service pages.
+
+slice: 2/3
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/after-tree-removal.njk
+  actual:
+    - src/after-tree-removal.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: dev server already running; navigated to /after-tree-removal/ via Chrome. Verified 200 response, page title, meta description, all 4 H2s render in correct order, 8 H3s (4 problem cards + 4 solution cards), 4 internal links to /irrigation-systems/ and /plant-selection/, TODO Steve markers stripped from served HTML, zero em-dashes in served HTML"
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template, no logic. Verified by rendering in dev
+    server and DOM inspection. Eleventy build was clean (no template
+    errors, page resolved at /after-tree-removal/ as expected by the
+    file-based routing).
+
+assumptions:
+  - "Steve performs all four restoration services himself (irrigation, lawn, soil, replanting). Locked decision from the plan; if Steve actually subs out lawn restoration or soil work, the relevant card needs softening from 'Steve does X' to 'Steve coordinates X'."
+  - "The /after-tree-removal/ URL is what the tree-service partner will link to. Not in main nav by design (referral page, not browse-able service page). Discoverable only via direct link."
+  - "Internal links to /irrigation-systems/ and /plant-selection/ resolve in production. Verified on dev server."
+
+specifications:
+  - "Page refuses to be a generic landscape sales pitch. Speaks to a specific homeowner moment (yard just got torn up by a tree removal crew)."
+  - "Hero opens with the homeowner's situation, not Steve's credentials. Validation before solution."
+  - "Problem section (what tree removal breaks) is educational, not alarmist. 4 specific impact areas with concrete detail (drip lines, soil compaction, root cavity, sun exposure)."
+  - "Solution section (what Steve restores) explicitly attributes the hands-on work to Steve, not to a generic 'Lytle team'. Concierge spine."
+  - "Concierge framing paragraph between solution and CTA states the body plan out loud: one person walks the yard rather than five subs."
+  - "Dual CTA at bottom (form + phone) matches the pattern on service-area pages."
+
+deviations_from_plan: >
+  Plan said hero would carry the concierge framing in the H1. Implementation
+  has the concierge framing in the hero sub-paragraph and a dedicated
+  section between solution and CTA. Lighter touch in the hero, heavier
+  later. Same content, different placement, more scannable.
+
+  Also: first pass shipped two em-dashes in title and meta description.
+  Caught them during browser verification and replaced with commas before
+  the commit. Worth flagging because the writing analysis explicitly flags
+  em-dashes as AI tells; I should be running a grep for them before every
+  template change going forward.
+
+trade_offs: >
+  Chose to launch the page without a hero image. Steve can add a torn-up-
+  yard or restoration-in-progress photo later. Cost: page is text-heavy
+  on first impression. Benefit: doesn't block ship on a photo Steve may
+  not have. Alternative would have been to reuse an existing portfolio
+  shot, but none of his existing images depict the specific moment this
+  page speaks to.
+
+  Also chose NOT to add this URL to the main nav or any nav. It's a
+  referral landing target, not a service page, and putting it in the nav
+  would dilute the homepage's homeowner-focused services list. Discoverable
+  only via direct link from the tree-service partner (and crawled by search
+  engines via the sitemap).
+
+interfaces:
+  consumed:
+    - "/#contact form (existing) — page CTAs link here"
+    - "/irrigation-systems/ (existing) — internal link in restoration card"
+    - "/plant-selection/ (existing) — internal link in restoration card"
+
+self_review:
+  consistency: >
+    Markup pattern matches existing service-area pages and the concierge
+    section from slice 1 (PR #10): same Tailwind grid/card vocabulary,
+    same icon + h3 + p shape inside cards, same bg-alternation between
+    sections.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    Page has one job: convert a homeowner who just lost a tree. It refuses
+    to know about other services Steve offers, other service areas, or
+    Steve's broader credentials. Those live elsewhere. Drawable: 5 sections
+    in a single column down the page, each section earning its place.
+  honesty: >
+    Voice is best-guess Steve. TODO marker is in source. The hands-on
+    attribution ('Steve finds the cut lines, repairs them...') is load-
+    bearing on the locked plan decision. If that decision was wrong, the
+    page needs softening — flagging in assumptions.
+
+confidence: high
+reviewer_attention:
+  - "src/after-tree-removal.njk:53-76 (the 'What Steve restores' cards) — these explicitly attribute the work to Steve personally. If Steve subs any of this out, the relevant card needs rewording"
+  - "src/after-tree-removal.njk:81-87 (concierge spine) — states the body plan out loud. Worth a sanity check that the framing matches how Steve actually pitches against multi-vendor alternatives"
