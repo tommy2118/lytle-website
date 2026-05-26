@@ -47,13 +47,19 @@
 
 @layer base {
   html {
+    /* Bump base from the browser default 16px to 18px for older readers.
+       All Tailwind size classes use rem so they scale proportionally. */
+    font-size: 18px;
     scroll-behavior: smooth;
   }
 
-  /* Improve focus visibility */
+  /* Stronger focus visibility for keyboard navigation. Lime is the
+     site CTA color, which keeps the visual language consistent and
+     gives keyboard users the same affordance the hover state implies. */
   :focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+    outline: 3px solid #7AB800;
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
