@@ -1,0 +1,103 @@
+intent: >
+  Make the site obviously navigable for older / less tech-savvy visitors
+  by bumping base font size, promoting the phone CTA, adding scroll
+  affordance to the homepage hero, and making service-card clickability
+  visually explicit.
+
+slice: "?/?"
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/assets/css/main.css
+    - src/_includes/partials/nav.njk
+    - src/index.njk
+  actual:
+    - src/assets/css/main.css
+    - src/_includes/partials/nav.njk
+    - src/index.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: dev server + Chrome via mcp__claude-in-chrome. Verified html font-size: 18px, nav links 20.25px, phone CTA 59px tall with icon, hero is 790px vs 929px viewport (85vh), About section peeks above fold on both desktop and mobile, scroll indicator present, 7 'Learn more' affordances on the service grid cards, mobile menu button 54x68 (over 44pt minimum), no horizontal overflow at mobile viewport."
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Visual UX changes; no logic. Verified by computed-style inspection
+    and bounding-rect measurements across desktop and mobile viewports.
+
+assumptions:
+  - "Bumping base font to 18px proportionally affects all Tailwind text-* classes (text-base -> 18px, text-lg -> 20.25px, etc.). Verified by sampling computed sizes in the browser."
+  - "Tailwind's animate-bounce is acceptable for the scroll indicator. Some accessibility guidelines flag animations for vestibular sensitivity, but a single subtle bounce on a single element falls under most prefers-reduced-motion exceptions. Could be wrapped in a media query if anyone reports motion sickness."
+  - "Older visitors browse with default (not zoomed) fonts. The 18px bump assumes they haven't already set a 125% browser zoom; if they have, this stacks with that and may be too large. Acceptable trade-off; visitors who already zoom are aware they're doing it."
+
+specifications:
+  - "html { font-size: 18px } is the body-plan move. Every text size on the site downstream of it scales proportionally."
+  - "Focus-visible uses lime (the site CTA color) for visual consistency: hover and keyboard focus produce the same color cue."
+  - "Hero is min-h-[85vh] not min-h-screen. The 15vh slice that's not covered shows the About section above the fold."
+  - "Scroll indicator is a link to #about, not just visual. Clicking/tapping it scrolls down — useful for older users who recognize it as 'click here for more'."
+  - "Service cards display 'Learn more ->' explicitly. The card-as-link pattern is preserved; the affordance is added."
+
+deviations_from_plan: >
+  None. Approved scope was 'quick wins + scroll affordance + link affordance'.
+  All three landed.
+
+trade_offs: >
+  Chose to NOT do a full Lighthouse audit pass. User chose the quick-wins
+  option explicitly. Most-likely Lighthouse gaps (contrast on specific
+  text, missing alt text, ARIA labels) can be addressed in a follow-up if
+  Steve sees specific issues.
+
+  Chose to NOT add a sticky 'Call Steve' banner across every page. Same
+  rationale: user chose quick wins, not the more aggressive option.
+
+  Chose 18px base, not 19 or 20. 18 is the standard 'comfortable reading'
+  base for older audiences without making the layout feel cramped. The
+  whole site rescales from this number; pushing higher would have started
+  to break visual rhythm in compact components (nav, footer).
+
+  Chose 85vh for the hero, not 70 or 75. 85 keeps the hero feeling like a
+  proper hero (still feels like the main impression on load) while showing
+  enough of the next section to signal scroll. 70vh would have felt small.
+
+  Em-dash inherited from a previously merged PR (lines 650, 662 of
+  index.njk) NOT cleaned up here. Out of scope and would muddy the diff.
+  Separate housekeeping PR if Steve cares about typography that fine.
+
+interfaces: {}
+
+self_review:
+  consistency: >
+    Nav style change uses the same Tailwind vocabulary (text-lg,
+    font-semibold, rounded-lg, shadow-md) the rest of the site uses for
+    CTAs. Phone icon uses Font Awesome (already on the site). Service
+    card 'Learn more' uses the same forest -> lime hover transition as
+    every other internal link on the site.
+  metz: N/A — templates and CSS.
+  body_plan: >
+    Three distinct changes, three distinct objects:
+      - main.css owns site-wide visual defaults (font size, focus)
+      - nav.njk owns the header / phone CTA
+      - index.njk hero owns the homepage scroll-affordance moment
+      - index.njk service grid owns the homepage link-affordance moment
+    Each object has a clear refusal list. main.css refuses to know about
+    page-specific layouts. nav.njk refuses to know about page content.
+    Hero refuses to load services or projects. Service cards refuse to
+    do anything except link to their pages.
+  honesty: >
+    The scroll affordance is real (hero is genuinely less than viewport
+    height now). The Learn more text is real (the cards always linked
+    somewhere; this just labels it). The phone CTA promotion is real
+    (it's now bigger and harder to miss). No theater.
+
+confidence: high
+reviewer_attention:
+  - "src/assets/css/main.css:50-58  — the 18px base. Single most impactful change in the PR. Worth reading the comment to understand why it cascades."
+  - "src/index.njk:7-21  — hero height + scroll indicator. The page-flow change."
+  - "src/_includes/partials/nav.njk:17-20  — phone CTA promotion. Verify it doesn't crowd the rest of the nav on tablet widths."
