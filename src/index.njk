@@ -571,82 +571,88 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">Transform your outdoor space with our expertise</p>
       </div>
 
-      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" data-controller="contact-form" data-action="submit->contact-form#validate">
         {# Hidden fields for Web3Forms integration #}
         <input type="hidden" name="access_key" value="{{ site.forms.web3formsKey }}">
         <input type="hidden" name="subject" value="New Contact Form Submission">
         <input type="hidden" name="from_name" value="{{ site.name }}">
         <input type="hidden" name="redirect" value="{{ site.url }}/thank-you/">
 
-        {# Name and Phone Fields #}
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">Your Name *</label>
-            <input type="text" id="name" name="name" required placeholder="John Doe" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-          </div>
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-          </div>
-        </div>
-
-        {# Email Field #}
+        {# Name (required) #}
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Email Address *</label>
-          <input type="email" id="email" name="email" required placeholder="example@example.com" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+          <label for="name" class="block text-sm font-medium text-gray-700">Your Name *</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
         </div>
 
-        {# Project Address #}
+        {# Phone or Email (at least one required, validated client-side) #}
         <div>
-          <label for="address" class="block text-sm font-medium text-gray-700">Project Address *</label>
-          <input type="text" id="address" name="address" required placeholder="123 Main Street" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-        </div>
-
-        {# City and ZIP Fields #}
-        <div class="grid grid-cols-2 gap-6">
-          <div>
-            <label for="city" class="block text-sm font-medium text-gray-700">City *</label>
-            <input type="text" id="city" name="city" required placeholder="City" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input type="tel" id="phone" name="phone" data-contact-form-target="phone" placeholder="(123) 456-7890" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+              <input type="email" id="email" name="email" data-contact-form-target="email" placeholder="example@example.com" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+            </div>
           </div>
-          <div>
-            <label for="zip" class="block text-sm font-medium text-gray-700">ZIP Code *</label>
-            <input type="text" id="zip" name="zip" required placeholder="12345" pattern="\d*" maxlength="5" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-          </div>
+          <p class="mt-2 text-sm text-gray-500">Provide a phone or email — whichever you prefer. We'll use it to follow up.</p>
+          <p data-contact-form-target="error" class="mt-2 text-sm text-red-600 hidden" role="alert">Please provide either a phone number or an email address.</p>
         </div>
 
-        {# Service Type #}
-        <div>
-          <label for="service" class="block text-sm font-medium text-gray-700">Service Type *</label>
-          <select id="service" name="service" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-            <option value="" disabled selected>Select a service</option>
-            <option value="Landscape Design">Landscape Design</option>
-            <option value="Landscape Installation">Landscape Installation</option>
-            <option value="Irrigation & Drainage">Irrigation & Drainage</option>
-            <option value="Landscape Lighting">Landscape Lighting</option>
-            <option value="Vegetable Gardens">Vegetable Gardens</option>
-            <option value="Other Services">Other Services</option>
-          </select>
-        </div>
-
-        {# How did you find us #}
-        <div>
-          <label for="referral_source" class="block text-sm font-medium text-gray-700">How did you find us? *</label>
-          <select id="referral_source" name="referral_source" required class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
-            <option value="" disabled selected>Please select an option</option>
-            <option value="Google search">Google search</option>
-            <option value="The Homemag">The Homemag</option>
-            <option value="Craigslist ad">Craigslist ad</option>
-            <option value="Referral from a friend">Referral from a friend</option>
-            <option value="Yelp">Yelp</option>
-            <option value="Houzz">Houzz</option>
-          </select>
-        </div>
-
-        {# Project Details #}
+        {# Project Details (required) #}
         <div>
           <label for="message" class="block text-sm font-medium text-gray-700">Project Details *</label>
           <textarea id="message" name="message" required rows="4" placeholder="Tell us about your project" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest"></textarea>
         </div>
+
+        {# Optional fields below — helps us prep but not required #}
+        <details class="rounded-lg bg-gray-50 p-4">
+          <summary class="cursor-pointer text-sm font-medium text-forest">Add project details (optional — speeds up our reply)</summary>
+          <div class="mt-4 space-y-6">
+            <div>
+              <label for="address" class="block text-sm font-medium text-gray-700">Project Address</label>
+              <input type="text" id="address" name="address" placeholder="123 Main Street" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+            </div>
+
+            <div class="grid grid-cols-2 gap-6">
+              <div>
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" id="city" name="city" placeholder="City" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+              </div>
+              <div>
+                <label for="zip" class="block text-sm font-medium text-gray-700">ZIP Code</label>
+                <input type="text" id="zip" name="zip" placeholder="12345" pattern="\d*" maxlength="5" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+              </div>
+            </div>
+
+            <div>
+              <label for="service" class="block text-sm font-medium text-gray-700">Service Type</label>
+              <select id="service" name="service" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                <option value="" selected>Not sure yet</option>
+                <option value="Landscape Design">Landscape Design</option>
+                <option value="Landscape Installation">Landscape Installation</option>
+                <option value="Irrigation & Drainage">Irrigation & Drainage</option>
+                <option value="Landscape Lighting">Landscape Lighting</option>
+                <option value="Vegetable Gardens">Vegetable Gardens</option>
+                <option value="Other Services">Other Services</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="referral_source" class="block text-sm font-medium text-gray-700">How did you find us?</label>
+              <select id="referral_source" name="referral_source" class="mt-1 w-full rounded-lg border-gray-300 shadow-sm focus:border-forest focus:ring-forest">
+                <option value="" selected>Prefer not to say</option>
+                <option value="Google search">Google search</option>
+                <option value="The Homemag">The Homemag</option>
+                <option value="Craigslist ad">Craigslist ad</option>
+                <option value="Referral from a friend">Referral from a friend</option>
+                <option value="Yelp">Yelp</option>
+                <option value="Houzz">Houzz</option>
+              </select>
+            </div>
+          </div>
+        </details>
 
         {# hCaptcha #}
         <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>

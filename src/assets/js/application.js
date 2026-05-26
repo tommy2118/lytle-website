@@ -10,3 +10,6 @@ window.Stimulus = application;
 // Import and register controllers
 import MobileNavController from "./controllers/mobile_nav_controller.js";
 application.register("mobile-nav", MobileNavController);
+
+import ContactFormController from "./controllers/contact_form_controller.js";
+application.register("contact-form", ContactFormController);
