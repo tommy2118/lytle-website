@@ -8,14 +8,15 @@
       </a>
 
       {# Desktop Navigation #}
-      <nav class="hidden md:flex items-center space-x-8">
+      <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
         {% for item in navigation.main %}
-        <a href="{{ item.url }}" class="hover:text-spring transition-colors">
+        <a href="{{ item.url }}" class="text-lg font-medium hover:text-spring transition-colors">
           {{ item.label }}
         </a>
         {% endfor %}
-        <a href="tel:{{ site.phoneRaw }}" class="bg-lime text-stone px-4 py-2 rounded-lg hover:bg-spring transition-colors">
-          {{ site.phone }}
+        <a href="tel:{{ site.phoneRaw }}" class="inline-flex items-center gap-2 bg-lime text-stone px-5 py-3 rounded-lg text-lg font-semibold hover:bg-spring transition-colors shadow-md">
+          <i class="fas fa-phone"></i>
+          <span>{{ site.phone }}</span>
         </a>
       </nav>
 
@@ -36,12 +37,13 @@
     {# Mobile Navigation #}
     <div data-mobile-nav-target="menu" class="hidden md:hidden py-4 space-y-4">
       {% for item in navigation.main %}
-      <a href="{{ item.url }}" class="block hover:text-spring transition-colors">
+      <a href="{{ item.url }}" class="block text-lg py-2 hover:text-spring transition-colors">
         {{ item.label }}
       </a>
       {% endfor %}
-      <a href="tel:{{ site.phoneRaw }}" class="block hover:text-spring transition-colors">
-        {{ site.phone }}
+      <a href="tel:{{ site.phoneRaw }}" class="inline-flex items-center gap-2 bg-lime text-stone px-5 py-3 rounded-lg text-lg font-semibold hover:bg-spring transition-colors shadow-md">
+        <i class="fas fa-phone"></i>
+        <span>Call {{ site.phone }}</span>
       </a>
     </div>
   </nav>

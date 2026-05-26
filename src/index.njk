@@ -5,7 +5,9 @@ description: Expert landscape design and garden consultation in Orange County by
 ---
 
 {# Hero Section #}
-<section class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('/assets/images/hero-home.jpg')">
+{# Height kept under 100vh on purpose so visitors see a slice of the next
+   section above the fold and know the page is meant to scroll. #}
+<section class="relative min-h-[85vh] flex items-center justify-center bg-cover bg-center" style="background-image: url('/assets/images/hero-home.jpg')">
   <div class="absolute inset-0 bg-gradient-to-b from-forest/60 to-spring/40"></div>
   <div class="relative z-10 text-center px-4">
     <div class="mb-4 text-spring font-semibold">Professional Horticulturist & Landscape Designer</div>
@@ -17,6 +19,12 @@ description: Expert landscape design and garden consultation in Orange County by
       Get Started
     </a>
   </div>
+
+  {# Scroll affordance. Makes it visually obvious the page continues below. #}
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white text-center group" aria-label="Scroll to learn more">
+    <span class="block text-sm font-medium mb-2 opacity-90 group-hover:opacity-100">More below</span>
+    <i class="fas fa-chevron-down text-2xl animate-bounce inline-block"></i>
+  </a>
 </section>
 
 {# About Section #}
@@ -210,6 +218,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Expert plant design, selection, and placement for thriving gardens and landscapes.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Garden Consultation Card #}
@@ -223,6 +232,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Professional horticultural guidance for thriving gardens and landscapes.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Irrigation Systems Card #}
@@ -236,6 +246,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Smart irrigation solutions for water conservation and plant health.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Landscape Lighting Card #}
@@ -249,6 +260,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Beautiful lighting design to showcase your garden's natural beauty.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Soil Health Card #}
@@ -262,6 +274,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Expert soil preparation and amendment for optimal plant growth.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Vegetable Gardens Card #}
@@ -275,6 +288,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Custom raised beds and edible gardens designed for Orange County growing conditions.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
 
       {# Hardscaping Card #}
@@ -288,6 +302,7 @@ description: Expert landscape design and garden consultation in Orange County by
         <p class="text-gray-600">
           Custom patios and walkways designed to complement your garden.
         </p>
+        <p class="text-forest font-semibold mt-4 group-hover:text-lime transition-colors">Learn more &rarr;</p>
       </a>
     </div>
   </div>
