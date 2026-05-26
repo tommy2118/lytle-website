@@ -1,0 +1,99 @@
+intent: >
+  Add a homepage section that promotes Tustin, Orange, and Villa Park as
+  Steve's primary service areas without removing the broader coverage
+  list, so the marketing emphasis shifts toward the three focus areas
+  while honest 'we serve all of OC' messaging stays intact.
+
+slice: "?/?"
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/index.njk
+  actual:
+    - src/index.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: dev server + Chrome via mcp__claude-in-chrome. Verified section ID 'primary-areas' present, section appears between 'working-with-steve' and 'services' in section order, all three city cards render with correct headings (Tustin & North Tustin, Orange, Villa Park) and correct service-area page hrefs (/service-areas/tustin/, /service-areas/orange/, /service-areas/villa-park/), TODO Steve markers stripped from served HTML, zero new em-dashes introduced."
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Static Nunjucks template, no logic. Verified by DOM inspection.
+
+assumptions:
+  - "navigation.json already orders serviceAreas with Tustin/Orange/Villa Park first. Verified — the existing footer iteration already produces them in the right order, no JSON change needed."
+  - "The existing 'Some of the Areas We Serve' grid in the About section stays intact and lists all 11 areas. Visitors who care about whether Steve serves a specific area can find it there."
+  - "Steve will rewrite the one-sentence city descriptions to match how he actually thinks about each area. The placeholder copy is best-guess (estate gardens in Tustin, Old Towne in Orange, larger estates in Villa Park)."
+  - "Lime border-left treatment is enough visual distinction without screaming 'these are different'. The cards still match the rest of the page's component vocabulary, just with one extra cue."
+
+specifications:
+  - "Primary Service Areas live in a single section between Working with Steve and Services, with section ID 'primary-areas'."
+  - "Section refuses to know about services or about Steve's bio. Those belong in adjacent sections."
+  - "Section refuses to claim Steve doesn't serve other areas. Intro paragraph explicitly says 'He works across Orange County, but these three are home.'"
+  - "Each card is wholly clickable (whole <a>) AND has a visible CTA line at the bottom for older / less tech-savvy visitors to recognize it as a link. Same pattern as the accessibility PR's service grid update."
+  - "Card visual treatment: bg-gray-50 (vs. white section bg), border-l-4 border-lime, shadow on hover. Distinguishable from the generic Services cards on the same page."
+
+deviations_from_plan: >
+  Plan said 'reorder navigation.json serviceAreas to put Tustin/Orange/
+  Villa Park first.' Turned out they were already first in the array. No
+  reorder needed; nav.json untouched. Surfacing because the plan listed
+  it as a step.
+
+  Plan said 'add homepage Primary Service Areas block.' Did that.
+
+  No deviation on intent or scope; the JSON step was just a confirmed
+  no-op.
+
+trade_offs: >
+  Chose NOT to restructure the existing About section to move the 11-city
+  grid OUT of it and into a separate 'Additional Service Areas' section
+  below the new Primary block. That would have given a cleaner top-to-
+  bottom hierarchy (focus first, full coverage second) but required
+  splitting About's 2-column layout, which is more disruptive than the
+  user asked for. The current order (full list inside About, focus block
+  after Working with Steve) is honest and works as a hierarchy.
+
+  Chose NOT to remove the 8 non-focus areas from the footer. The footer
+  iterates navigation.json's serviceAreas; removing them there would have
+  hidden them across every page, which conflicts with 'Steve still
+  serves these areas'.
+
+  Chose 'Where Steve Focuses' as the section eyebrow rather than
+  'Primary Service Areas' as the H2. Concierge voice — Steve is the
+  subject, not the abstract noun.
+
+interfaces:
+  consumed:
+    - "/service-areas/tustin/ (existing) — card link target"
+    - "/service-areas/orange/ (existing) — card link target"
+    - "/service-areas/villa-park/ (existing) — card link target"
+
+self_review:
+  consistency: >
+    Card markup follows the established Lytle pattern: <a> wraps the card,
+    group classes for hover propagation, icon + heading + p + CTA pattern.
+    The lime border-l-4 is a new visual element but uses the existing
+    lime brand color.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    New section has one job: visually promote Tustin/Orange/Villa Park.
+    Refuses to do anything else. Drawable: positioned between 'how Steve
+    works' and 'what Steve does', completing the homeowner journey:
+    impression -> person -> method -> location -> offerings -> proof ->
+    CTA.
+  honesty: >
+    Section explicitly says 'He works across Orange County, but these
+    three are home.' That's the actual situation Steve described.
+    Doesn't claim exclusivity; doesn't hide the broader coverage.
+
+confidence: high
+reviewer_attention:
+  - "src/index.njk:196-198  — section intro paragraph. The 'He works across Orange County, but these three are home' line is the body-plan refusal stated out loud. Worth a sanity check that it reads honestly to Steve."
+  - "src/index.njk:202-206, 209-213, 216-220  — three card descriptions. Best-guess characterizations of each area's distinctive work. Steve should overwrite with his actual sense of each market."
