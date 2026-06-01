@@ -1,0 +1,83 @@
+intent: >
+  Promote City from optional to required on the homepage contact form so
+  Steve can qualify leads against his focus areas (Tustin, Orange, Villa
+  Park) without chasing form submissions that lack location context.
+
+slice: "?/?"
+kind: feature
+behavior_change: additive
+
+reversibility: trivial
+
+scope:
+  declared:
+    - src/index.njk
+  actual:
+    - src/index.njk
+  drift: []
+
+proof:
+  tests_run: "Manual: dev server + Chrome. Verified single city field (no duplicate), required attribute present, label shows 'City *', city sits outside the optional <details> block, ZIP also moved up but stays optional, all other field requirements unchanged."
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Single attribute change plus moving two fields out of a collapsed
+    block. Verified by DOM inspection.
+
+assumptions:
+  - "Steve's focus-area qualification benefits more from required-city than the abandonment cost hurts. Locked decision from him; if conversion drops in the next 30 days, the assumption may need revisiting."
+  - "City + ZIP visually paired in a 2-col grid matches the original (pre-trim) form layout. Familiar pattern for the visitor."
+  - "ZIP staying optional is fine. Steve mentioned city; ZIP was not in scope. If Steve later wants ZIP required too, single attribute flip."
+
+specifications:
+  - "Required visible fields on the homepage form: name, city, message, and at least one of phone/email."
+  - "ZIP, address, service type, and referral source stay optional in the 'Add project details' collapse."
+  - "City label includes the * convention used by other required fields on the form."
+  - "City and ZIP visually paired in a 2-col grid (original form layout)."
+
+deviations_from_plan: >
+  No plan file. Ad-hoc one-line directive from Steve via Tommy: 'make
+  the city mandatory on the customer form'. Followed exactly.
+
+trade_offs: >
+  Original form trim (PR #8) cut required fields from 9 to 2 specifically
+  because 87 form_starts -> 14 form_submits = 16% conversion, with most
+  abandons attributed to field count. Adding city back to required adds
+  one field of friction. Steve's judgment is that losing out-of-area
+  leads at form time is cheaper than chasing them after submit. Worth
+  watching the conversion rate over the next 30 days.
+
+  Could have parsed city from the message field with a simple regex
+  match against Orange County city names, but that's a guess against
+  free-text input. Required dropdown or required input is cleaner and
+  matches Steve's actual qualification workflow.
+
+  Could have made city required via a Stimulus controller validator (like
+  phone-or-email) instead of HTML required. Chose HTML required because
+  it's simpler and the browser-native UX for required field validation
+  is familiar to older visitors.
+
+interfaces: {}
+
+self_review:
+  consistency: >
+    City and ZIP pair markup mirrors the (now removed) pair that was
+    inside the details block. Same Tailwind class vocabulary, same
+    2-col grid. Required attribute follows the same pattern as name
+    and message.
+  metz: N/A — Nunjucks template.
+  body_plan: >
+    Form's job is unchanged: collect enough info to qualify and contact a
+    lead. The required surface grew by one field. The collapsed-details
+    block lost two fields (city and zip moved up), making it shorter,
+    which is fine. No new objects, no new collaborators.
+  honesty: >
+    City required with the * label. No hidden coercion. Visitors see the
+    requirement before they hit submit.
+
+confidence: high
+reviewer_attention:
+  - "src/index.njk:687-696 (the new visible city+zip row) — placement between phone/email and message. Worth a glance to confirm the form flows naturally top to bottom."
