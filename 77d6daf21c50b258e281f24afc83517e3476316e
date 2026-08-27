@@ -1,0 +1,74 @@
+intent: >
+  Guarantee every homepage lead carries contact info by making email
+  required at the HTML level, closing the no-JS gap left by the old
+  client-side phone-or-email check.
+
+slice: ?/?
+kind: feature
+behavior_change: breaking
+
+reversibility: reversible
+
+scope:
+  declared:
+    - src/index.njk
+    - src/assets/js/application.js
+    - src/assets/js/controllers/contact_form_controller.js
+  actual:
+    - src/index.njk
+    - src/assets/js/application.js
+    - src/assets/js/controllers/contact_form_controller.js
+  drift: []
+
+proof:
+  tests_run: npm run build
+  result: green
+  failing: 0
+
+tests:
+  needed: "no"
+  rationale: >
+    Repo has no test infrastructure (static Eleventy site; scripts are
+    dev/build/clean only). Proof is a clean build plus manual browser
+    verification of the required-field behavior.
+
+lint:
+  run: none
+  result: skipped
+  count: 0
+  rationale: >
+    No linter configured in this repo.
+
+verification:
+  manual:
+    - "npm run build compiles clean, no stale contact-form references (grep)"
+    - "Browser check of required email planned in Chrome before push"
+
+assumptions:
+  - "no active plan — ad-hoc work; declared = files agreed in conversation"
+  - "Browser-native constraint validation (required + type=email) is a sufficient floor; Web3Forms does no server-side field validation"
+  - "Phone-only leads lost to the email requirement are acceptable — Tommy chose the guaranteed-email floor over the either/or UX"
+
+specifications:
+  - "Lead-capture floor: every lead form requires email via HTML required; phone is optional on top"
+
+deviations_from_plan: none
+
+addresses: []
+
+trade_offs: >
+  Chose HTML required on email over keeping the JS either/or check.
+  Cost is that phone-preferring visitors must now supply an email;
+  benefit is enforcement that survives JS failure. Keeping both was
+  rejected as dead code — the JS branch could never fire.
+
+self_review:
+  tests: "No test framework in repo; build + manual browser check is the existing verification pattern."
+  consistency: "Matches the required-attr + asterisk-label convention on Name, City, Project Details; removes the one-off JS validation pattern rather than adding a second way."
+  api: "Removed the contact-form Stimulus identifier; grep confirms zero remaining consumers."
+  dead_code: "Controller file and registration deleted with the wiring — nothing orphaned left behind."
+  error_paths: "Empty/invalid email now blocked by browser constraint validation in all browsers, including no-JS."
+
+confidence: high
+reviewer_attention:
+  - src/index.njk:672-684
